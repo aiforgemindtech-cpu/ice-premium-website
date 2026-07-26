@@ -1,0 +1,42 @@
+[
+  {
+    "id": "f1",
+    "question": "Which areas do you work in?",
+    "answer": "We take on work in Abuja, Lagos, Enugu, Asaba and Port Harcourt. If your project sits outside those cities, contact us anyway — depending on the scale and duration we can often still help, and we will tell you honestly if we cannot."
+  },
+  {
+    "id": "f2",
+    "question": "Do you handle both residential and commercial projects?",
+    "answer": "Yes. Our twelve disciplines cover private homes, commercial offices, retail units and mixed-use properties. The process is the same in each case: survey, scope, fixed proposal, programme, delivery, handover."
+  },
+  {
+    "id": "f3",
+    "question": "How do you price a project?",
+    "answer": "After a site survey we issue a written proposal that breaks down labour, materials and programme. We price the scope as surveyed. If something is genuinely unforeseeable — hidden damage behind a wall, for instance — we come back to you with a variation in writing before proceeding, never after."
+  },
+  {
+    "id": "f4",
+    "question": "Can you work around an occupied building?",
+    "answer": "Regularly. Phased programmes, dust barriers, out-of-hours scheduling for noisy activities and temporary supplies to keep critical systems live are all standard tools for us. Tell us your operational constraints at survey stage and we will build the programme around them."
+  },
+  {
+    "id": "f5",
+    "question": "Do you offer a single point of contact across multiple trades?",
+    "answer": "Yes — that is the main reason clients come to us with multi-trade work. Rather than coordinating an electrician, a plumber, a tiler and a carpenter yourself, you deal with one contract and one project lead who sequences all twelve disciplines in-house."
+  },
+  {
+    "id": "f6",
+    "question": "What happens if something goes wrong after handover?",
+    "answer": "Contact us. We record what was installed and by whom on every project, so we can diagnose quickly rather than starting from scratch. Defects arising from our workmanship are ours to put right."
+  },
+  {
+    "id": "f7",
+    "question": "How long does a typical project take?",
+    "answer": "It depends entirely on scope. A single-room refresh may be days; a full office refit runs to weeks. What we commit to is a written programme with dates before work starts, and telling you early if anything threatens those dates."
+  },
+  {
+    "id": "f8",
+    "question": "Is a consultation free?",
+    "answer": "Yes. The initial consultation and site survey to understand your requirements cost you nothing and carry no obligation to proceed."
+  }
+]

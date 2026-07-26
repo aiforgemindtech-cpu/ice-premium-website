@@ -1,26 +1,311 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* Surfaces — the site is permanently dark. There is no light mode. */
+  --color-navy: #070d1f;
+  --color-navy-surface: #0d1a3a;
+  --color-navy-elevated: #101f44;
+
+  /* The single accent. Gold only — never cyan, indigo or default blue. */
+  --color-gold: #d4af37;
+  --color-gold-light: #e6c659;
+
+  --color-ink: #ffffff;
+  /* Contrast on #070d1f: ink 19.3:1, body 8.3:1, muted 6.2:1 — all clear of
+     WCAG AA. `muted` is 0.55 rather than the 0.45 in the brief because 0.45
+     lands at 4.51:1, which passes by 0.01 and fails once it sits on the
+     semi-transparent surface variants. */
+  --color-body: rgba(255, 255, 255, 0.65);
+  --color-muted: rgba(255, 255, 255, 0.55);
+  --color-hairline: rgba(255, 255, 255, 0.12);
+
+  --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  * {
+    border-color: var(--color-hairline);
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-navy);
+    color: var(--color-body);
+    font-family: var(--font-sans);
+    font-size: 1.125rem;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    color: var(--color-ink);
+    line-height: 1.1;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Gold focus ring, visible on every interactive element. */
+  :focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  ::selection {
+    background-color: var(--color-gold);
+    color: var(--color-navy);
+  }
+
+  /* Required by Lenis; inert when smooth scroll is disabled. */
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .container-page {
+    width: 100%;
+    max-width: 80rem;
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    .container-page {
+      padding-inline: 2rem;
+    }
+  }
+
+  .section {
+    padding-block: 5rem;
+  }
+
+  @media (min-width: 1024px) {
+    .section {
+      padding-block: 7rem;
+    }
+  }
+
+  /* Monospace eyebrow/caption treatment used throughout. */
+  .mono-label {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+  }
+
+  /* Skip link. Written as explicit CSS because Tailwind's `focus:not-sr-only`
+     does not reliably beat `sr-only` in the cascade, which left the link
+     invisible even when focused. */
+  .skip-link {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  .skip-link:focus {
+    position: fixed;
+    top: 1.5rem;
+    left: 1.5rem;
+    z-index: 100;
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 0.85rem 1.5rem;
+    overflow: visible;
+    clip-path: none;
+    border-radius: 9999px;
+    background-color: var(--color-gold);
+    color: var(--color-navy);
+    font-weight: 600;
+  }
+
+  .glass {
+    background-color: color-mix(in srgb, var(--color-navy-surface) 70%, transparent);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--color-hairline);
+  }
+
+  /* Body copy rendered from MDX (services and blog articles). */
+  .prose-ice > * + * {
+    margin-top: 1.5rem;
+  }
+
+  .prose-ice h2 {
+    font-size: 1.75rem;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .prose-ice h3 {
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .prose-ice p {
+    color: var(--color-body);
+  }
+
+  .prose-ice strong {
+    color: var(--color-ink);
+    font-weight: 600;
+  }
+
+  .prose-ice a {
+    color: var(--color-gold);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .prose-ice ol {
+    padding-left: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    color: var(--color-body);
+    list-style: decimal;
+  }
+
+  .prose-ice ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    color: var(--color-body);
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .prose-ice ul > li {
+    position: relative;
+    padding-left: 1.5rem;
+  }
+
+  .prose-ice ul > li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.7em;
+    width: 6px;
+    height: 6px;
+    border-radius: 9999px;
+    background-color: var(--color-gold);
+  }
+}
+
+@layer utilities {
+  /* Sheen sweep across the primary gold button on hover. */
+  .btn-sheen::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      100deg,
+      transparent 20%,
+      rgba(255, 255, 255, 0.45) 50%,
+      transparent 80%
+    );
+    transform: translateX(-100%);
+    transition: transform 0.7s ease;
+  }
+
+  .btn-sheen:hover::after {
+    transform: translateX(100%);
+  }
+
+  .edge-fade {
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 8%,
+      black 92%,
+      transparent
+    );
+  }
+}
+
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.8;
+  }
+  70% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+/* Every animation on the site collapses to its end state here. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }

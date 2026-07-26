@@ -1,0 +1,116 @@
+{
+  "_README": "SINGLE SOURCE OF TRUTH for all contact details, nav and social links. Every page reads from this file. Change a value here and it updates across the entire site.",
+
+  "company": {
+    "name": "ICE-PREMIUM LIMITED",
+    "shortName": "ICE-Premium",
+    "motto": "Innovation · Creativity · Excellence",
+    "rcNumber": "8682310",
+    "established": "2025",
+    "industry": "Engineering · Construction · Maintenance",
+    "tagline": "Engineering the future, built to perfection.",
+    "description": "ICE-PREMIUM LIMITED delivers engineering, construction and maintenance across twelve disciplines — from structural renovation and electrical installation to interior design and facility maintenance — for clients in Abuja, Lagos, Enugu, Asaba and Port Harcourt."
+  },
+
+  "contact": {
+    "_COMMENT_phone": "REPLACE BEFORE LAUNCH — placeholder value, not a real number",
+    "phone": "+234 000 000 0000",
+
+    "_COMMENT_phoneHref": "REPLACE BEFORE LAUNCH — placeholder value, must match `phone` in E.164 format",
+    "phoneHref": "+2340000000000",
+
+    "_COMMENT_whatsapp": "REPLACE BEFORE LAUNCH — placeholder value, digits only, no + or spaces",
+    "whatsapp": "2340000000000",
+
+    "_COMMENT_whatsappMessage": "Pre-filled text for the WhatsApp deep link. Safe to edit.",
+    "whatsappMessage": "Hello ICE-Premium, I would like to discuss a project.",
+
+    "_COMMENT_email": "REPLACE BEFORE LAUNCH — placeholder domain, not a real inbox",
+    "email": "hello@REPLACE-ME.com",
+
+    "_COMMENT_addressLine1": "REPLACE BEFORE LAUNCH — placeholder street address",
+    "addressLine1": "000 Placeholder Avenue",
+
+    "_COMMENT_addressLine2": "REPLACE BEFORE LAUNCH — placeholder district",
+    "addressLine2": "Central Business District",
+
+    "_COMMENT_city": "REPLACE BEFORE LAUNCH — confirm registered office city",
+    "city": "Abuja",
+
+    "_COMMENT_country": "Country of operation. Safe to leave as is.",
+    "country": "Nigeria",
+
+    "_COMMENT_hours": "REPLACE BEFORE LAUNCH — confirm real opening hours",
+    "hours": "Monday – Saturday, 8:00am – 6:00pm"
+  },
+
+  "socials": {
+    "_COMMENT": "REPLACE BEFORE LAUNCH — every URL below is a placeholder. Delete any row the company does not use and it disappears from the footer automatically.",
+    "facebook": "https://facebook.com/REPLACE-ME",
+    "instagram": "https://instagram.com/REPLACE-ME",
+    "linkedin": "https://linkedin.com/company/REPLACE-ME",
+    "x": "https://x.com/REPLACE-ME"
+  },
+
+  "site": {
+    "_COMMENT_url": "REPLACE BEFORE LAUNCH — the real production domain. Used for canonical URLs, sitemap and Open Graph tags.",
+    "url": "https://ice-premium-website.workers.dev",
+    "locale": "en_NG",
+    "twitterHandle": "@REPLACE-ME"
+  },
+
+  "serviceAreas": [
+    { "city": "Abuja", "state": "FCT", "x": 50, "y": 42, "primary": true },
+    { "city": "Lagos", "state": "Lagos", "x": 20, "y": 72, "primary": false },
+    { "city": "Enugu", "state": "Enugu", "x": 62, "y": 68, "primary": false },
+    { "city": "Asaba", "state": "Delta", "x": 47, "y": 74, "primary": false },
+    { "city": "Port Harcourt", "state": "Rivers", "x": 55, "y": 86, "primary": false }
+  ],
+
+  "nav": [
+    { "label": "Home", "href": "/" },
+    { "label": "About", "href": "/about" },
+    { "label": "Services", "href": "/services" },
+    { "label": "Projects", "href": "/projects" },
+    { "label": "Before & After", "href": "/before-after" },
+    { "label": "Blog", "href": "/blog" },
+    { "label": "Contact", "href": "/contact" }
+  ],
+
+  "footerNav": [
+    {
+      "heading": "Company",
+      "links": [
+        { "label": "About Us", "href": "/about" },
+        { "label": "Our Projects", "href": "/projects" },
+        { "label": "Before & After", "href": "/before-after" },
+        { "label": "Testimonials", "href": "/testimonials" },
+        { "label": "Blog", "href": "/blog" }
+      ]
+    },
+    {
+      "heading": "Legal",
+      "links": [
+        { "label": "Privacy Policy", "href": "/privacy" },
+        { "label": "Terms of Service", "href": "/terms" },
+        { "label": "Contact", "href": "/contact" }
+      ]
+    }
+  ],
+
+  "stats": [
+    { "value": 12, "suffix": "", "label": "Disciplines" },
+    { "value": 5, "suffix": "", "label": "Cities Served" },
+    { "value": 2025, "suffix": "", "label": "Established", "raw": true },
+    { "value": 100, "suffix": "%", "label": "Client Focused" }
+  ],
+
+  "trustedBy": [
+    "Residential Developers",
+    "Commercial Estates",
+    "Facility Managers",
+    "Hospitality Groups",
+    "Retail Fit-Outs",
+    "Private Homeowners"
+  ]
+}

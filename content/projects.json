@@ -1,0 +1,153 @@
+[
+  {
+    "slug": "cbd-office-refit",
+    "title": "Central Business District Office Refit",
+    "discipline": "Renovation & Remodeling",
+    "city": "Abuja",
+    "year": "2025",
+    "summary": "A full interior strip-out and rebuild of a 1,400 m² open-plan office floor, delivered across a phased programme so the client's team stayed operational throughout.",
+    "scope": [
+      "Structural partition removal and reinstatement",
+      "New suspended ceiling grid with integrated lighting",
+      "Full electrical first and second fix",
+      "Porcelain tiling to circulation areas",
+      "Acoustic treatment to meeting suites"
+    ],
+    "challenge": "The client could not vacate the building. Every noisy or dust-generating activity had to be scheduled outside core business hours, and the live server room had to remain powered without interruption.",
+    "solution": "We split the floor into four zones and worked a rolling night programme, sealing each zone with temporary dust barriers. The server room was placed on a temporary supply before the main distribution board was replaced, so uptime was never at risk.",
+    "outcome": "Handed over on programme with zero recorded downtime for the client's operations team.",
+    "featured": true,
+    "size": "large",
+    "image": "/images/projects/cbd-office-refit.jpg",
+    "gallery": [
+      "/images/projects/cbd-office-refit.jpg",
+      "/images/projects/cbd-office-refit-2.jpg",
+      "/images/projects/cbd-office-refit-3.jpg"
+    ]
+  },
+  {
+    "slug": "lekki-residence-rewire",
+    "title": "Lekki Private Residence Rewire",
+    "discipline": "Electrical Installations",
+    "city": "Lagos",
+    "year": "2025",
+    "summary": "Complete replacement of an ageing domestic electrical installation in a five-bedroom residence, brought up to current standards with full circuit separation and surge protection.",
+    "scope": [
+      "New consumer unit with RCBO protection per circuit",
+      "Full rewire in fire-rated conduit",
+      "Dedicated circuits for HVAC and borehole pump",
+      "Whole-property surge protection device",
+      "Certified testing and inspection schedule"
+    ],
+    "challenge": "The original installation had been extended piecemeal over years, with undocumented circuits buried in the fabric of the building and no reliable earthing arrangement.",
+    "solution": "We traced and mapped every existing circuit before any work began, producing an as-found schedule. That map let us plan a rewire that reused existing routes where they were safe and abandoned the rest, keeping the making-good works to a minimum.",
+    "outcome": "The property now has a fully documented, individually protected installation with a complete test certificate pack for the owner's records.",
+    "featured": true,
+    "size": "small",
+    "image": "/images/projects/lekki-residence-rewire.jpg",
+    "gallery": [
+      "/images/projects/lekki-residence-rewire.jpg",
+      "/images/projects/lekki-residence-rewire-2.jpg"
+    ]
+  },
+  {
+    "slug": "enugu-retail-fitout",
+    "title": "Enugu Retail Unit Fit-Out",
+    "discipline": "Interior Design",
+    "city": "Enugu",
+    "year": "2025",
+    "summary": "Shell-to-trading fit-out of a ground-floor retail unit, covering the design concept, joinery, lighting scheme and final finishes.",
+    "scope": [
+      "Concept design and 2D layout planning",
+      "Bespoke display joinery in oak veneer",
+      "Track lighting scheme with warm colour temperature",
+      "Vinyl plank flooring throughout",
+      "Feature paint and signage backing"
+    ],
+    "challenge": "The unit had a low floor-to-ceiling height and only one shopfront elevation for natural light, which risked a cramped and dim trading environment.",
+    "solution": "We kept the ceiling open rather than dropping a grid, painted the exposed services dark so they visually receded, and used a layered lighting scheme to create brightness at merchandise level without lowering the perceived height.",
+    "outcome": "A trading space that reads as considerably larger and brighter than its floor plate suggests.",
+    "featured": false,
+    "size": "small",
+    "image": "/images/projects/enugu-retail-fitout.jpg",
+    "gallery": [
+      "/images/projects/enugu-retail-fitout.jpg",
+      "/images/projects/enugu-retail-fitout-2.jpg"
+    ]
+  },
+  {
+    "slug": "asaba-roof-replacement",
+    "title": "Asaba Roof Replacement & Waterproofing",
+    "discipline": "Roofing & Waterproofing",
+    "city": "Asaba",
+    "year": "2025",
+    "summary": "Strip and re-cover of a failing long-span aluminium roof over a two-storey commercial building, including full replacement of the rainwater goods.",
+    "scope": [
+      "Strip existing sheets and inspect timber structure",
+      "Replace decayed purlins and noggins",
+      "New long-span aluminium roofing sheets",
+      "Membrane waterproofing to parapet junctions",
+      "New gutters, downpipes and drainage connections"
+    ],
+    "challenge": "Persistent leaks had been patched repeatedly without success. The real fault was not the sheets but the parapet detail, where water was tracking behind the flashing during driven rain.",
+    "solution": "Rather than simply re-covering, we opened up the parapet junction, installed a proper upstand and membrane detail, and dressed the new flashing over it. The sheet replacement then sat on a junction that could actually shed water.",
+    "outcome": "No recorded ingress through two full rainy seasons since completion.",
+    "featured": true,
+    "size": "small",
+    "image": "/images/projects/asaba-roof-replacement.jpg",
+    "gallery": [
+      "/images/projects/asaba-roof-replacement.jpg",
+      "/images/projects/asaba-roof-replacement-2.jpg"
+    ]
+  },
+  {
+    "slug": "ph-facility-maintenance",
+    "title": "Port Harcourt Facility Maintenance Contract",
+    "discipline": "Facility Maintenance",
+    "city": "Port Harcourt",
+    "year": "2025",
+    "summary": "An ongoing planned and reactive maintenance contract covering a mixed-use commercial property, moving the client from break-fix callouts to a scheduled regime.",
+    "scope": [
+      "Asset register and condition survey",
+      "Planned preventative maintenance schedule",
+      "Reactive callout response",
+      "Quarterly electrical and plumbing inspections",
+      "Annual budget forecasting for the client"
+    ],
+    "challenge": "The client had no asset register and no maintenance history, so every failure was a surprise and every repair was priced as an emergency.",
+    "solution": "We started with a full condition survey and built an asset register from scratch. That let us put the highest-risk items on a planned schedule and gave the client, for the first time, a forecastable annual maintenance budget.",
+    "outcome": "Reactive emergency callouts dropped substantially in the first year as planned interventions caught faults earlier.",
+    "featured": false,
+    "size": "small",
+    "image": "/images/projects/ph-facility-maintenance.jpg",
+    "gallery": [
+      "/images/projects/ph-facility-maintenance.jpg",
+      "/images/projects/ph-facility-maintenance-2.jpg"
+    ]
+  },
+  {
+    "slug": "abuja-steel-balustrade",
+    "title": "Abuja Steel Balustrade & Staircase",
+    "discipline": "Steel & Metal Fabrication",
+    "city": "Abuja",
+    "year": "2025",
+    "summary": "Design, fabrication and installation of a feature steel staircase and balustrade system for a residential atrium, finished in powder-coated black with a hardwood handrail.",
+    "scope": [
+      "Site survey and shop drawings",
+      "Workshop fabrication of stringer and treads",
+      "Powder-coated finish to all steelwork",
+      "Hardwood handrail machined and fitted on site",
+      "Balustrade infill to current guarding heights"
+    ],
+    "challenge": "The atrium opening was out of square by a noticeable margin, which would have shown badly on a staircase with long straight runs.",
+    "solution": "We surveyed the opening properly before fabricating anything and set the staircase out to a true line, absorbing the discrepancy in the trimmer detail at the head. The finished stair reads dead straight even though the opening is not.",
+    "outcome": "A feature staircase that sits true in an opening that is not, with no visible packing or scribing.",
+    "featured": false,
+    "size": "small",
+    "image": "/images/projects/abuja-steel-balustrade.jpg",
+    "gallery": [
+      "/images/projects/abuja-steel-balustrade.jpg",
+      "/images/projects/abuja-steel-balustrade-2.jpg"
+    ]
+  }
+]
