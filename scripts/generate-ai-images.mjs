@@ -80,6 +80,20 @@ async function generate(prompt, reference) {
 
   if (!res.ok) {
     const body = await res.text();
+
+    // `limit: 0` is not an exhausted allowance, it is no allowance at all:
+    // image generation is not on the Gemini free tier. Retrying never clears
+    // it, so say so plainly instead of burning the retry budget.
+    if (res.status === 429 && /limit:\s*0\b/.test(body)) {
+      const err = new Error(
+        "image generation is not available on this key's free tier " +
+          "(quota limit is 0, not exhausted). Enable billing on the Google " +
+          "Cloud project behind this key, or use a key from a billed project.",
+      );
+      err.fatal = true;
+      throw err;
+    }
+
     throw new Error(`HTTP ${res.status}: ${body.slice(0, 300)}`);
   }
 
@@ -132,7 +146,21 @@ const run = async () => {
 
   if (needsAnchor) {
     process.stdout.write(`  ${anchor.path} … `);
-    const buf = await generate(anchor.prompt);
+    let buf;
+    try {
+      buf = await generate(anchor.prompt);
+    } catch (err) {
+      if (err.fatal) {
+        console.log("FAILED");
+        console.error(`\n  ${err.message}\n`);
+        console.error(
+          "  Nothing was changed. The brand graphics in /public/images still\n" +
+            "  fill every image slot, so the site is unaffected.\n",
+        );
+        process.exit(1);
+      }
+      throw err;
+    }
     const dims = await writeVariants(buf, anchor);
     reference = await sharp(buf).resize({ width: 768 }).jpeg({ quality: 80 }).toBuffer();
     console.log(`ok ${dims.width}x${dims.height}`);
@@ -165,6 +193,15 @@ const run = async () => {
         done++;
         ok = true;
       } catch (err) {
+        if (err.fatal) {
+          console.log("FAILED");
+          console.error(`\n  ${err.message}\n`);
+          console.error(
+            "  Nothing was changed. The brand graphics in /public/images still\n" +
+              "  fill every image slot, so the site is unaffected.\n",
+          );
+          process.exit(1);
+        }
         if (attempt === 3) {
           console.log(`FAILED (${err.message.slice(0, 80)})`);
           failed.push(item.path);

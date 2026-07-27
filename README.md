@@ -119,7 +119,18 @@ There are two generators, both writing to the same paths in `/public/images`:
 | Command | Produces | Needs a key |
 | --- | --- | --- |
 | `npm run images` | Designed brand graphics — a truss for roofing, a circuit for electrical, a perspective floor for tiling | No |
-| `npm run images:ai` | AI-generated photography via Google Gemini | `GEMINI_API_KEY` |
+| `npm run images:ai` | AI-generated photography via Google Gemini | `GEMINI_API_KEY` **on a billed project** |
+
+> **Image generation is not on the Gemini free tier.** A free API key returns
+> HTTP 429 with `limit: 0` for every image model — that is no allowance at all,
+> not an exhausted one, so waiting and retrying never clears it. The same key
+> works fine for text.
+>
+> To use `npm run images:ai`, enable billing on the Google Cloud project behind
+> the key (image generation is billed per image; the 40 images this site needs
+> cost roughly a few dollars at current rates). The script detects this exact
+> condition and exits without changing anything, so a key without billing is
+> harmless to try.
 
 The brand graphics ship by default so the site is never broken waiting on a key.
 Running the AI generator overwrites them in place — same filenames, same aspect
