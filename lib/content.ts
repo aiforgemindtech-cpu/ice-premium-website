@@ -26,6 +26,7 @@ const siteConfigSchema = z.object({
     phone: z.string(),
     phoneHref: z.string(),
     whatsapp: z.string(),
+    whatsappDisplay: z.string(),
     whatsappMessage: z.string(),
     email: z.string(),
     addressLine1: z.string(),

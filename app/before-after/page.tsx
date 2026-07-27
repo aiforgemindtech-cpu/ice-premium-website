@@ -35,8 +35,8 @@ export default function BeforeAfterPage() {
       <section className="section">
         <div className="container-page">
           <PlaceholderNotice className="mx-auto max-w-3xl">
-            These comparisons use generated placeholder graphics, not photographs
-            of real ICE-Premium work. Replace the paired files in{" "}
+            These comparisons use designed brand graphics, not photographs of
+            real ICE-Premium work. Replace the paired files in{" "}
             <code className="text-gold">/public/images/before-after</code> with
             genuine before and after photography before launch.
           </PlaceholderNotice>

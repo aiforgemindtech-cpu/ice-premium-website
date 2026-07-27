@@ -13,34 +13,30 @@
   },
 
   "contact": {
-    "_COMMENT_phone": "REPLACE BEFORE LAUNCH — placeholder value, not a real number",
-    "phone": "+234 000 000 0000",
+    "_COMMENT_phone": "⚠️ CONFIRM — supplied as 091127515135, which is 12 digits. Nigerian numbers are 11 (0 + 10). One digit is likely a typo, so this may not connect. Verify and correct here.",
+    "phone": "0911 275 15135",
 
-    "_COMMENT_phoneHref": "REPLACE BEFORE LAUNCH — placeholder value, must match `phone` in E.164 format",
-    "phoneHref": "+2340000000000",
+    "_COMMENT_phoneHref": "⚠️ CONFIRM — derived from `phone` above and inherits the same 12-digit problem.",
+    "phoneHref": "+23491127515135",
 
-    "_COMMENT_whatsapp": "REPLACE BEFORE LAUNCH — placeholder value, digits only, no + or spaces",
-    "whatsapp": "2340000000000",
+    "_COMMENT_whatsapp": "Verified 11-digit number: 09036531358. Stored in international format, digits only, no + or spaces.",
+    "whatsapp": "2349036531358",
+
+    "_COMMENT_whatsappDisplay": "Same WhatsApp number, formatted for display.",
+    "whatsappDisplay": "0903 653 1358",
 
     "_COMMENT_whatsappMessage": "Pre-filled text for the WhatsApp deep link. Safe to edit.",
     "whatsappMessage": "Hello ICE-Premium, I would like to discuss a project.",
 
-    "_COMMENT_email": "REPLACE BEFORE LAUNCH — placeholder domain, not a real inbox",
+    "_COMMENT_email": "REPLACE BEFORE LAUNCH — placeholder domain, not a real inbox. This is the last outstanding contact detail.",
     "email": "hello@REPLACE-ME.com",
 
-    "_COMMENT_addressLine1": "REPLACE BEFORE LAUNCH — placeholder street address",
-    "addressLine1": "000 Placeholder Avenue",
-
-    "_COMMENT_addressLine2": "REPLACE BEFORE LAUNCH — placeholder district",
-    "addressLine2": "Central Business District",
-
-    "_COMMENT_city": "REPLACE BEFORE LAUNCH — confirm registered office city",
+    "addressLine1": "382 Ransom Kuti Close",
+    "addressLine2": "Katampe Extension",
     "city": "Abuja",
-
-    "_COMMENT_country": "Country of operation. Safe to leave as is.",
     "country": "Nigeria",
 
-    "_COMMENT_hours": "REPLACE BEFORE LAUNCH — confirm real opening hours",
+    "_COMMENT_hours": "CONFIRM — assumed trading hours, not supplied.",
     "hours": "Monday – Saturday, 8:00am – 6:00pm"
   },
 

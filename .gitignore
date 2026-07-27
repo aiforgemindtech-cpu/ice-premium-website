@@ -48,3 +48,5 @@ cloudflare-env.d.ts
 
 # generated content bundle — rebuilt by `npm run content` on every build
 /content/.generated/
+.photo-cache/
+.tmp-preview/

@@ -10,7 +10,7 @@ import { KenBurns } from "@/components/hero/ken-burns";
 import { Magnetic } from "@/components/hero/magnetic";
 import { ParticleCanvas } from "@/components/hero/particle-canvas";
 import { Button } from "@/components/ui/button";
-import { siteConfig } from "@/lib/content";
+import { siteConfig, whatsappLink } from "@/lib/content";
 
 const HEADLINE_WHITE = ["Engineering", "the", "future,"];
 const HEADLINE_GOLD = ["built", "to", "perfection."];
@@ -134,10 +134,12 @@ export function Hero() {
             className="mt-8 font-mono text-xs uppercase tracking-[0.18em] text-white/50"
           >
             <a
-              href={`tel:${siteConfig.contact.phoneHref}`}
+              href={whatsappLink()}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex min-h-11 items-center px-2 transition-colors hover:text-gold"
             >
-              {siteConfig.contact.phone}
+              WhatsApp {siteConfig.contact.whatsappDisplay}
             </a>
             <span className="mx-3 text-gold">·</span>
             Free consultation

@@ -36,9 +36,15 @@ hardcoded anywhere else in the codebase.**
 
 ### 2. Photography
 
-Every image in `/public/images` is a **generated placeholder graphic, not a
-photograph**. Each one carries a visible `PLACEHOLDER — NOT A REAL PROJECT PHOTO`
-label so it cannot reach production unnoticed.
+Every image in `/public/images` is a **designed brand graphic, not a
+photograph** — a skyline and crane for the hero, a circuit schematic for
+electrical, a truss for roofing, a perspective floor grid for tiling, and so on.
+They are drawn in the company palette by `scripts/generate-brand-images.mjs`.
+
+This is deliberate. An illustration cannot be mistaken for one of ICE-Premium's
+own project photos; a piece of unrelated stock photography of someone else's
+building very easily can. Until the real photography is recovered, graphics keep
+the site looking intentional without implying work that isn't yours.
 
 Replace the files, keeping the same filenames and roughly the same aspect ratios:
 
@@ -51,16 +57,36 @@ Replace the files, keeping the same filenames and roughly the same aspect ratios
 | `before-after/` | 8 | 4 matched pairs, same angle and framing |
 | `general/` | 2 | Company overview shot, and an OG fallback |
 
-Once you have real photography, delete `scripts/generate-placeholder-images.mjs`
-and the `images` npm script — they exist only to produce the stand-ins.
+Once you have real photography, delete `scripts/generate-brand-images.mjs` and
+the `images` npm script — they exist only to produce the stand-ins.
 
-> **On stock photography:** the original brief called for Unsplash API imagery.
-> That was not used, because live Unsplash photos are stock images of unrelated
-> people and sites — placing them beside "our projects" copy risks implying they
-> depict ICE-Premium's own work. Neutral, obviously-fake placeholders make the gap
-> impossible to miss. If you want Unsplash as an interim step, add
-> `UNSPLASH_ACCESS_KEY` to `.env.local` and fetch at build time in the images
-> script — but label the results as stock in the UI.
+Regenerate at any time with `npm run images` (output is deterministic, so
+re-running produces identical files and no git churn).
+
+#### Want real photographs sooner?
+
+The fastest route to genuine, high-resolution construction photography is a
+**free Unsplash API key** — about two minutes to obtain, no card required, and
+the Unsplash licence permits commercial use with no attribution obligation.
+
+1. Register an app at
+   [unsplash.com/developers](https://unsplash.com/developers)
+2. Put the access key in `.env.local` as `UNSPLASH_ACCESS_KEY`
+3. Say the word and the image pipeline can be pointed at it
+
+Two free sources were evaluated and rejected:
+
+- **Openverse** delivers images capped around 1024px — too small for a
+  full-bleed hero — and returned a single relevant public-domain result for
+  "construction worker".
+- **Wikimedia Commons** has true high-resolution originals but almost nothing
+  relevant; queries yielded between zero and three usable images each, in
+  mismatched styles, mostly under CC BY-SA (which carries attribution and
+  share-alike obligations).
+
+Keyword-fetching also carries real brand risk: a test search for
+"Lagos Nigeria building" returned an image titled *"Nigerian scam"*. Nothing is
+worth putting on a client's site without a human looking at it first.
 
 ### 3. Testimonials
 

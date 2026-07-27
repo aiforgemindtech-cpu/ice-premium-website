@@ -60,7 +60,7 @@ export default async function ServiceDetailPage(
         title={service.title}
         description={service.summary}
         image={service.heroImage}
-        imageAlt={`Placeholder graphic representing ${service.title.toLowerCase()} work`}
+        imageAlt={`Brand graphic representing ${service.title.toLowerCase()} work`}
         breadcrumbs={breadcrumbs}
       >
         <span className="mt-8 inline-grid size-14 place-items-center rounded-2xl border border-gold/30 bg-gold/10 text-gold">
@@ -156,7 +156,7 @@ export default async function ServiceDetailPage(
             eyebrow="Gallery"
             title="Representative"
             accent="imagery."
-            description="Placeholder graphics standing in for real project photography — these are not photographs of ICE-Premium work."
+            description="Designed brand graphics standing in for real project photography — these are not photographs of ICE-Premium work."
           />
           <ul className="mt-12 grid gap-4 sm:grid-cols-3">
             {[service.heroImage, ...related.map((r) => r.heroImage)]
@@ -166,7 +166,7 @@ export default async function ServiceDetailPage(
                   <div className="relative aspect-4/3 overflow-hidden rounded-2xl border border-white/10">
                     <Image
                       src={src}
-                      alt="Placeholder graphic standing in for project photography"
+                      alt="Brand graphic standing in for project photography"
                       fill
                       sizes="(min-width: 640px) 33vw, 100vw"
                       className="object-cover"

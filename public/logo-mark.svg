@@ -1,0 +1,29 @@
+<!--
+  ICE-PREMIUM LIMITED — "iP" hexagon monogram.
+
+  This is a vector RECREATION of the supplied logo, built so it stays crisp at
+  every size and sits cleanly on the dark navy background. Colours use the site
+  palette (gold #d4af37) rather than the brighter amber of the original raster,
+  so the mark blends with the rest of the UI.
+
+  To swap in the official artwork: replace this file with the real vector logo,
+  keeping the filename and a square-ish viewBox. Nothing else needs changing.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="ICE-Premium Limited">
+  <!-- P — hexagonal bowl, drawn as a ring via evenodd -->
+  <path
+    fill="#ffffff"
+    fill-rule="evenodd"
+    d="M140 17 L207.5 56 L207.5 134 L140 173 L72.5 134 L72.5 56 Z
+       M140 62 L168.6 78.5 L168.6 111.5 L140 128 L111.4 111.5 L111.4 78.5 Z"
+  />
+
+  <!-- P — descender, slanted foot to match the original's angled cuts -->
+  <path fill="#ffffff" d="M72.5 108 L105 126 L105 223 L72.5 205 Z" />
+
+  <!-- i — stem -->
+  <path fill="#ffffff" d="M28 104 L60.5 122 L60.5 205 L28 187 Z" />
+
+  <!-- i — gold accent dot -->
+  <path fill="#d4af37" d="M28 46 L60.5 46 L60.5 92 L28 92 Z" transform="skewX(-12) translate(14 0)" />
+</svg>

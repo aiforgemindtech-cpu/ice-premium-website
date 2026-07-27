@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Clock, Mail, MapPin, Phone } from "lucide-react";
+import { Clock, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 
 import { ContactForm } from "@/components/contact/contact-form";
 import { FaqSection } from "@/components/home/faq-section";
@@ -65,6 +65,25 @@ export default function ContactPage() {
                       className="mt-1 block text-lg text-ink transition-colors hover:text-gold"
                     >
                       {contact.phone}
+                    </a>
+                  </div>
+                </li>
+                <li className="flex gap-4">
+                  <MessageCircle
+                    className="mt-1 size-5 shrink-0 text-gold"
+                    aria-hidden="true"
+                  />
+                  <div>
+                    <p className="font-mono text-[0.625rem] uppercase tracking-[0.2em] text-muted">
+                      WhatsApp
+                    </p>
+                    <a
+                      href={whatsappLink()}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-1 block text-lg text-ink transition-colors hover:text-gold"
+                    >
+                      {contact.whatsappDisplay}
                     </a>
                   </div>
                 </li>

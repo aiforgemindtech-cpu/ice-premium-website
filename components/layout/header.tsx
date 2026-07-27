@@ -6,6 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
+import { LogoMark } from "@/components/brand/logo-mark";
 import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/lib/content";
 import { cn } from "@/lib/utils";
@@ -44,14 +45,15 @@ export function Header() {
           className="group flex min-h-11 items-center gap-3"
           aria-label={`${siteConfig.company.name} home`}
         >
-          <span className="relative grid size-10 place-items-center rounded-lg border border-gold/40 bg-gradient-to-br from-gold/20 to-transparent">
-            <span className="font-display text-sm font-bold text-gold">ICE</span>
-          </span>
+          <LogoMark className="size-10 shrink-0 text-ink transition-opacity group-hover:opacity-90" />
           <span className="hidden flex-col leading-none sm:flex">
             <span className="font-display text-base font-bold tracking-tight text-ink">
-              {siteConfig.company.name}
+              ICE PREMIUM
+              <span className="ml-1.5 align-middle rounded-sm bg-gold px-1.5 py-0.5 font-mono text-[0.5rem] font-medium uppercase tracking-[0.2em] text-navy">
+                Limited
+              </span>
             </span>
-            <span className="mt-1 font-mono text-[0.6rem] uppercase tracking-[0.2em] text-muted">
+            <span className="mt-1.5 font-mono text-[0.6rem] uppercase tracking-[0.2em] text-muted">
               RC {siteConfig.company.rcNumber}
             </span>
           </span>

@@ -57,7 +57,7 @@ export default async function ProjectDetailPage(
         title={project.title}
         description={project.summary}
         image={project.image}
-        imageAlt={`Placeholder graphic representing ${project.title}`}
+        imageAlt={`Brand graphic representing ${project.title}`}
         breadcrumbs={breadcrumbs}
       />
 
@@ -119,7 +119,7 @@ export default async function ProjectDetailPage(
             eyebrow="Gallery"
             title="Project"
             accent="imagery."
-            description="Placeholder graphics standing in for real project photography."
+            description="Designed brand graphics standing in for real project photography."
           />
           <ul className="mt-12 grid gap-4 sm:grid-cols-3">
             {project.gallery.map((src, i) => (
@@ -127,7 +127,7 @@ export default async function ProjectDetailPage(
                 <div className="relative aspect-4/3 overflow-hidden rounded-2xl border border-white/10">
                   <Image
                     src={src}
-                    alt={`${project.title} — placeholder image ${i + 1}`}
+                    alt={`${project.title} — brand graphic ${i + 1}`}
                     fill
                     sizes="(min-width: 640px) 33vw, 100vw"
                     className="object-cover"

@@ -12,6 +12,13 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Build output and scratch dirs — traversing these exhausts the heap.
+    ".open-next/**",
+    ".wrangler/**",
+    ".tmp-preview/**",
+    ".photo-cache/**",
+    "content/.generated/**",
+    "public/**",
   ]),
 ]);
 

@@ -1,8 +1,9 @@
-import { Clock, Mail, MapPin, Phone } from "lucide-react";
+import { Clock, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import Link from "next/link";
 
+import { LogoLockup } from "@/components/brand/logo-mark";
 import { SocialLinks } from "@/components/layout/social-links";
-import { services, siteConfig } from "@/lib/content";
+import { services, siteConfig, whatsappLink } from "@/lib/content";
 
 export function Footer() {
   const { company, contact, footerNav } = siteConfig;
@@ -12,16 +13,7 @@ export function Footer() {
       <div className="container-page py-16 lg:py-20">
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4">
-            <div className="flex items-center gap-3">
-              <span className="grid size-11 place-items-center rounded-lg border border-gold/40 bg-gradient-to-br from-gold/20 to-transparent">
-                <span className="font-display text-sm font-bold text-gold">
-                  ICE
-                </span>
-              </span>
-              <span className="font-display text-lg font-bold text-ink">
-                {company.name}
-              </span>
-            </div>
+            <LogoLockup showMotto />
             <p className="mt-5 max-w-sm text-base text-body">
               {company.description}
             </p>
@@ -81,6 +73,20 @@ export function Footer() {
                   className="inline-flex min-h-11 items-center transition-colors hover:text-gold"
                 >
                   {contact.phone}
+                </a>
+              </li>
+              <li className="flex gap-3">
+                <MessageCircle
+                  className="mt-1 size-4 shrink-0 text-gold"
+                  aria-hidden="true"
+                />
+                <a
+                  href={whatsappLink()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex min-h-11 items-center transition-colors hover:text-gold"
+                >
+                  WhatsApp {contact.whatsappDisplay}
                 </a>
               </li>
               <li className="flex gap-3">
