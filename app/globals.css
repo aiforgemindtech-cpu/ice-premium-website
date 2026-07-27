@@ -148,6 +148,33 @@
     font-weight: 600;
   }
 
+  /* Ken Burns slow zoom.
+     Deliberately CSS rather than a Framer Motion animation: a long-running
+     motion child inside AnimatePresence blocks the exiting slide from
+     unmounting, so slides accumulated in the DOM and every hero image
+     eventually loaded. A CSS animation is not tracked by AnimatePresence, so
+     exits complete and only the live slide stays mounted. */
+  @keyframes ken-burns {
+    from {
+      transform: scale(1.04);
+    }
+    to {
+      transform: scale(1.14);
+    }
+  }
+
+  .ken-burns-zoom {
+    animation: ken-burns 7.5s linear forwards;
+    will-change: transform;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ken-burns-zoom {
+      animation: none;
+      transform: none;
+    }
+  }
+
   .glass {
     background-color: color-mix(in srgb, var(--color-navy-surface) 70%, transparent);
     backdrop-filter: blur(12px);

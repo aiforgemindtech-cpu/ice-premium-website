@@ -57,7 +57,7 @@ export default async function ProjectDetailPage(
         title={project.title}
         description={project.summary}
         image={project.image}
-        imageAlt={`Brand graphic representing ${project.title}`}
+        imageAlt={`${project.discipline} work at ${project.title} in ${project.city}`}
         breadcrumbs={breadcrumbs}
       />
 
@@ -114,12 +114,13 @@ export default async function ProjectDetailPage(
       </section>
 
       <section className="section border-t border-white/10 bg-navy-surface/20">
+        {/* AI-generated stock imagery — swap for real ICE-Premium project photos when available */}
         <div className="container-page">
           <SectionHeading
             eyebrow="Gallery"
             title="Project"
             accent="imagery."
-            description="Designed brand graphics standing in for real project photography."
+            description="Representative imagery for this discipline — not photographs of this specific job."
           />
           <ul className="mt-12 grid gap-4 sm:grid-cols-3">
             {project.gallery.map((src, i) => (
@@ -127,7 +128,7 @@ export default async function ProjectDetailPage(
                 <div className="relative aspect-4/3 overflow-hidden rounded-2xl border border-white/10">
                   <Image
                     src={src}
-                    alt={`${project.title} — brand graphic ${i + 1}`}
+                    alt={`${project.discipline} work at ${project.title}, view ${i + 1}`}
                     fill
                     sizes="(min-width: 640px) 33vw, 100vw"
                     className="object-cover"

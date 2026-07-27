@@ -108,6 +108,39 @@ the Nigeria Data Protection Act and your actual practices, then remove the
 
 ---
 
+## About the imagery
+
+**No photograph on this site is a photograph of an ICE-Premium project.** The
+client's original project photography was lost, so every image slot is filled by
+a stand-in that represents a discipline generically.
+
+There are two generators, both writing to the same paths in `/public/images`:
+
+| Command | Produces | Needs a key |
+| --- | --- | --- |
+| `npm run images` | Designed brand graphics — a truss for roofing, a circuit for electrical, a perspective floor for tiling | No |
+| `npm run images:ai` | AI-generated photography via Google Gemini | `GEMINI_API_KEY` |
+
+The brand graphics ship by default so the site is never broken waiting on a key.
+Running the AI generator overwrites them in place — same filenames, same aspect
+ratios — so no component, MDX file or JSON entry needs touching.
+
+**The rule that matters:** never let copy, captions, alt text or a sales
+conversation describe any of these images as a specific completed ICE-Premium
+job. They show what the work looks like, not what *we did at 14 Adeola Odeku*.
+Alt text throughout is written to describe the activity ("Roofer rolling out
+waterproofing membrane"), never to claim a particular project. If someone asks
+"which job is this?", the honest answer must always be available — and it is
+"none, these are stand-ins until our own photographs are back".
+
+Every image-consuming component carries a comment saying the same thing, so the
+next person to edit one sees it before they write a caption.
+
+Replace `/public/images` with the client's real photography when it is
+recovered, then delete both generator scripts and their npm scripts.
+
+---
+
 ## Editing content — the 60-second workflow
 
 No code knowledge needed. Every task below is one file.

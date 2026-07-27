@@ -12,6 +12,7 @@
  * swap-before-launch checklist in the README.
  */
 import { mkdirSync, writeFileSync } from "node:fs";
+import { images } from "./image-manifest.mjs";
 import { join } from "node:path";
 import sharp from "sharp";
 
@@ -384,109 +385,32 @@ async function render(dir, name, kind, w, h) {
     .toFile(join(OUT, dir, `${name}.jpg`));
 }
 
-const HERO = [
-  ["hero-1", "skyline"],
-  ["hero-2", "crane"],
-  ["hero-3", "frame"],
-  ["hero-4", "truss"],
-  ["hero-5", "steel"],
-  ["hero-6", "plan"],
-  ["hero-7", "room"],
-  ["hero-8", "circuit"],
-];
-
-const SERVICES = {
-  "renovation-remodeling": "frame",
-  "electrical-installations": "circuit",
-  plumbing: "pipes",
-  "painting-finishing": "paint",
-  "roofing-waterproofing": "truss",
-  "ceiling-installation": "room",
-  "ceiling-design": "plan",
-  "tiling-flooring": "tiles",
-  "carpentry-woodworking": "timber",
-  "steel-metal-fabrication": "steel",
-  "facility-maintenance": "pipes",
-  "interior-design": "room",
-};
-
-const PROJECTS = {
-  "cbd-office-refit": ["room", "plan", "tiles"],
-  "lekki-residence-rewire": ["circuit", "plan", "room"],
-  "enugu-retail-fitout": ["room", "timber", "tiles"],
-  "asaba-roof-replacement": ["truss", "steel", "brick"],
-  "ph-facility-maintenance": ["pipes", "steel", "plan"],
-  "abuja-steel-balustrade": ["steel", "timber", "frame"],
-};
-
-const POSTS = {
-  "why-your-roof-keeps-leaking-after-repairs": "truss",
-  "what-a-condition-survey-actually-finds": "plan",
-  "planned-maintenance-versus-emergency-callouts": "pipes",
-  "why-tiles-crack-and-how-to-prevent-it": "tiles",
-  "designing-ceilings-in-rooms-without-height": "room",
-  "single-contractor-versus-managing-trades-yourself": "frame",
-};
-
-const BEFORE_AFTER = {
-  "office-reception": ["brick", "room"],
-  "kitchen-refit": ["brick", "timber"],
-  "facade-restoration": ["brick", "frame"],
-  "bathroom-renovation": ["brick", "tiles"],
-};
 
 const run = async () => {
-  let n = 0;
-
-  for (const [name, kind] of HERO) {
-    await render("hero", name, kind, 1920, 1080);
-    n++;
+  for (const item of images) {
+    const [dir, name] = item.path.split("/");
+    await render(dir, name, item.scene, item.w, item.h);
   }
-
-  for (const [slug, kind] of Object.entries(SERVICES)) {
-    await render("services", slug, kind, 1600, 900);
-    n++;
-  }
-
-  for (const [slug, kinds] of Object.entries(PROJECTS)) {
-    await render("projects", slug, kinds[0], 1600, 1100);
-    await render("projects", `${slug}-2`, kinds[1], 1400, 1000);
-    await render("projects", `${slug}-3`, kinds[2], 1400, 1000);
-    n += 3;
-  }
-
-  for (const [slug, kind] of Object.entries(POSTS)) {
-    await render("blog", slug, kind, 1400, 900);
-    n++;
-  }
-
-  for (const [slug, [b, a]] of Object.entries(BEFORE_AFTER)) {
-    await render("before-after", `${slug}-before`, b, 1400, 1000);
-    await render("before-after", `${slug}-after`, a, 1400, 1000);
-    n += 2;
-  }
-
-  await render("general", "company-overview", "frame", 1400, 1200);
-  await render("general", "og-fallback", "skyline", 1200, 630);
-  n += 2;
 
   writeFileSync(
     join(OUT, "README.txt"),
     [
       "ICE-PREMIUM LIMITED — site imagery",
       "",
-      "These files are DESIGNED BRAND GRAPHICS, not photographs. They are drawn",
-      "per trade in the company palette so the site reads as intentional while",
-      "real project photography is unavailable.",
+      "These files are DESIGNED BRAND GRAPHICS, not photographs. They hold the",
+      "image slots so the site is never broken, and are drawn per trade in the",
+      "company palette.",
       "",
-      "Regenerate with:  npm run images",
-      "Replace with real photography by overwriting these files, keeping the same",
-      "filenames and roughly the same aspect ratios. See the README checklist.",
+      "  npm run images     regenerate these brand graphics",
+      "  npm run images:ai  overwrite them with AI photography (needs GEMINI_API_KEY)",
+      "",
+      "Either way these stand in for real ICE-Premium project photography, which",
+      "should replace them once recovered. See the README checklist.",
       "",
     ].join("\n"),
   );
 
-  console.log(`generated ${n} brand images`);
+  console.log(`generated ${images.length} brand images`);
 };
 
 run();

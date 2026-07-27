@@ -13,11 +13,11 @@
   },
 
   "contact": {
-    "_COMMENT_phone": "⚠️ CONFIRM — supplied as 091127515135, which is 12 digits. Nigerian numbers are 11 (0 + 10). One digit is likely a typo, so this may not connect. Verify and correct here.",
-    "phone": "0911 275 15135",
+    "_COMMENT_phone": "Confirmed 11-digit line: 09127515135.",
+    "phone": "0912 751 5135",
 
-    "_COMMENT_phoneHref": "⚠️ CONFIRM — derived from `phone` above and inherits the same 12-digit problem.",
-    "phoneHref": "+23491127515135",
+    "_COMMENT_phoneHref": "Same number in E.164 for tel: links.",
+    "phoneHref": "+2349127515135",
 
     "_COMMENT_whatsapp": "Verified 11-digit number: 09036531358. Stored in international format, digits only, no + or spaces.",
     "whatsapp": "2349036531358",
@@ -28,8 +28,7 @@
     "_COMMENT_whatsappMessage": "Pre-filled text for the WhatsApp deep link. Safe to edit.",
     "whatsappMessage": "Hello ICE-Premium, I would like to discuss a project.",
 
-    "_COMMENT_email": "REPLACE BEFORE LAUNCH — placeholder domain, not a real inbox. This is the last outstanding contact detail.",
-    "email": "hello@REPLACE-ME.com",
+    "email": "info@icepremiumltd.com",
 
     "addressLine1": "382 Ransom Kuti Close",
     "addressLine2": "Katampe Extension",
@@ -49,8 +48,8 @@
   },
 
   "site": {
-    "_COMMENT_url": "REPLACE BEFORE LAUNCH — the real production domain. Used for canonical URLs, sitemap and Open Graph tags.",
-    "url": "https://ice-premium-website.workers.dev",
+    "_COMMENT_url": "CONFIRM — inferred from the info@icepremiumltd.com contact address. Drives canonical URLs, the sitemap and Open Graph tags, so it must match the domain the site is actually served from.",
+    "url": "https://icepremiumltd.com",
     "locale": "en_NG",
     "twitterHandle": "@REPLACE-ME"
   },

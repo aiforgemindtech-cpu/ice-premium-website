@@ -13,6 +13,7 @@ export function ProjectShowcase() {
 
   return (
     <section className="section border-t border-white/10 bg-navy-surface/20">
+      {/* AI-generated stock imagery — swap for real ICE-Premium project photos when available */}
       <div className="container-page">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <SectionHeading

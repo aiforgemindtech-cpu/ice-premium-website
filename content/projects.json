@@ -21,8 +21,8 @@
     "image": "/images/projects/cbd-office-refit.jpg",
     "gallery": [
       "/images/projects/cbd-office-refit.jpg",
-      "/images/projects/cbd-office-refit-2.jpg",
-      "/images/projects/cbd-office-refit-3.jpg"
+      "/images/services/ceiling-installation.jpg",
+      "/images/services/interior-design.jpg"
     ]
   },
   {
@@ -47,7 +47,8 @@
     "image": "/images/projects/lekki-residence-rewire.jpg",
     "gallery": [
       "/images/projects/lekki-residence-rewire.jpg",
-      "/images/projects/lekki-residence-rewire-2.jpg"
+      "/images/services/electrical-installations.jpg",
+      "/images/services/renovation-remodeling.jpg"
     ]
   },
   {
@@ -72,7 +73,8 @@
     "image": "/images/projects/enugu-retail-fitout.jpg",
     "gallery": [
       "/images/projects/enugu-retail-fitout.jpg",
-      "/images/projects/enugu-retail-fitout-2.jpg"
+      "/images/services/ceiling-design.jpg",
+      "/images/services/tiling-flooring.jpg"
     ]
   },
   {
@@ -97,7 +99,8 @@
     "image": "/images/projects/asaba-roof-replacement.jpg",
     "gallery": [
       "/images/projects/asaba-roof-replacement.jpg",
-      "/images/projects/asaba-roof-replacement-2.jpg"
+      "/images/services/roofing-waterproofing.jpg",
+      "/images/services/steel-metal-fabrication.jpg"
     ]
   },
   {
@@ -122,7 +125,8 @@
     "image": "/images/projects/ph-facility-maintenance.jpg",
     "gallery": [
       "/images/projects/ph-facility-maintenance.jpg",
-      "/images/projects/ph-facility-maintenance-2.jpg"
+      "/images/services/facility-maintenance.jpg",
+      "/images/services/plumbing-services.jpg"
     ]
   },
   {
@@ -147,7 +151,8 @@
     "image": "/images/projects/abuja-steel-balustrade.jpg",
     "gallery": [
       "/images/projects/abuja-steel-balustrade.jpg",
-      "/images/projects/abuja-steel-balustrade-2.jpg"
+      "/images/services/steel-metal-fabrication.jpg",
+      "/images/services/carpentry-woodworking.jpg"
     ]
   }
 ]

@@ -60,7 +60,7 @@ export default async function ServiceDetailPage(
         title={service.title}
         description={service.summary}
         image={service.heroImage}
-        imageAlt={`Brand graphic representing ${service.title.toLowerCase()} work`}
+        imageAlt={`${service.title} work being carried out on site`}
         breadcrumbs={breadcrumbs}
       >
         <span className="mt-8 inline-grid size-14 place-items-center rounded-2xl border border-gold/30 bg-gold/10 text-gold">
@@ -156,17 +156,21 @@ export default async function ServiceDetailPage(
             eyebrow="Gallery"
             title="Representative"
             accent="imagery."
-            description="Designed brand graphics standing in for real project photography — these are not photographs of ICE-Premium work."
+            description="Representative imagery for this discipline — not photographs of specific ICE-Premium jobs."
           />
+          {/* AI-generated stock imagery — swap for real ICE-Premium project photos when available */}
           <ul className="mt-12 grid gap-4 sm:grid-cols-3">
-            {[service.heroImage, ...related.map((r) => r.heroImage)]
+            {[
+              { src: service.heroImage, title: service.title },
+              ...related.map((r) => ({ src: r.heroImage, title: r.title })),
+            ]
               .slice(0, 3)
-              .map((src, i) => (
-                <Reveal as="li" key={src} delay={i * 0.08}>
+              .map((item, i) => (
+                <Reveal as="li" key={item.src} delay={i * 0.08}>
                   <div className="relative aspect-4/3 overflow-hidden rounded-2xl border border-white/10">
                     <Image
-                      src={src}
-                      alt="Brand graphic standing in for project photography"
+                      src={item.src}
+                      alt={`${item.title} work being carried out`}
                       fill
                       sizes="(min-width: 640px) 33vw, 100vw"
                       className="object-cover"

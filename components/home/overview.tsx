@@ -28,13 +28,14 @@ const PILLARS = [
 export function Overview() {
   return (
     <section id="overview" className="section scroll-mt-24">
+      {/* AI-generated stock imagery — swap for real ICE-Premium project photos when available */}
       <div className="container-page grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
         <Reveal className="relative">
           <div className="glass relative overflow-hidden rounded-3xl p-3">
             <div className="relative aspect-4/5 overflow-hidden rounded-2xl">
               <Image
-                src="/images/general/company-overview.jpg"
-                alt="ICE-Premium engineers reviewing drawings on a project site"
+                src="/images/about/team-photo.jpg"
+                alt="The ICE-Premium team of five trades professionals together on site"
                 fill
                 sizes="(min-width: 1024px) 45vw, 100vw"
                 className="object-cover"

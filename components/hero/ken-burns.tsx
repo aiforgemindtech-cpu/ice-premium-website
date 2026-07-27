@@ -7,19 +7,24 @@ import { useEffect, useState } from "react";
 /**
  * Layer 1 — Ken Burns crossfade slideshow.
  *
- * STOCK/PLACEHOLDER IMAGERY: these are generated placeholder graphics, not
- * photographs, and not ICE-Premium's own project photos. Swap the files in
- * /public/images/hero for real project photography before launch.
+ * AI-generated stock imagery — swap for real ICE-Premium project photos when
+ * available. These represent each discipline generically and are not
+ * photographs of specific completed jobs.
+ *
+ * The `description` below is documentation, not alt text. This whole layer is
+ * decorative background sitting behind the headline, so it is `aria-hidden`
+ * with empty alt: announcing eight rotating image descriptions over the top of
+ * the page's actual heading would be noise, not help.
  */
 const SLIDES = [
-  { src: "/images/hero/hero-1.jpg", alt: "Electrical installation work in progress" },
-  { src: "/images/hero/hero-2.jpg", alt: "Roofing works on a commercial building" },
-  { src: "/images/hero/hero-3.jpg", alt: "Carpentry and joinery being fitted" },
-  { src: "/images/hero/hero-4.jpg", alt: "Painting and finishing to interior walls" },
-  { src: "/images/hero/hero-5.jpg", alt: "Engineers reviewing drawings on site" },
-  { src: "/images/hero/hero-6.jpg", alt: "Steel fabrication in the workshop" },
-  { src: "/images/hero/hero-7.jpg", alt: "Interior fit-out nearing completion" },
-  { src: "/images/hero/hero-8.jpg", alt: "Facility maintenance inspection" },
+  { src: "/images/hero/hero-01.jpg", description: "Engineer studying drawings on site" },
+  { src: "/images/hero/hero-02.jpg", description: "Electrician terminating cables in a board" },
+  { src: "/images/hero/hero-03.jpg", description: "Roofer rolling out waterproofing membrane" },
+  { src: "/images/hero/hero-04.jpg", description: "Carpenter planing hardwood at a bench" },
+  { src: "/images/hero/hero-05.jpg", description: "Fabricator welding a steel balustrade" },
+  { src: "/images/hero/hero-06.jpg", description: "Designer comparing material samples" },
+  { src: "/images/hero/hero-07.jpg", description: "Trades reviewing a drawing together" },
+  { src: "/images/hero/hero-08.jpg", description: "Completed building at golden hour" },
 ];
 
 const INTERVAL = 5500;
@@ -63,12 +68,7 @@ export function KenBurns() {
           exit={{ opacity: 0 }}
           transition={{ duration: 1.6, ease: "easeInOut" }}
         >
-          <motion.div
-            className="absolute inset-0"
-            initial={reduced ? false : { scale: 1.04 }}
-            animate={reduced ? undefined : { scale: 1.14 }}
-            transition={{ duration: INTERVAL / 1000 + 2, ease: "linear" }}
-          >
+          <div className="absolute inset-0 ken-burns-zoom">
             <Image
               src={SLIDES[index].src}
               alt=""
@@ -77,7 +77,7 @@ export function KenBurns() {
               sizes="100vw"
               className="object-cover"
             />
-          </motion.div>
+          </div>
         </motion.div>
       </AnimatePresence>
 

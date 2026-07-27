@@ -1,9 +1,9 @@
 /**
  * Before/after pairs.
  *
- * PLACEHOLDER IMAGERY — these are generated graphics, not photographs of real
- * ICE-Premium work. Replace the files in /public/images/before-after with real
- * paired project photography before launch.
+ * AI-generated stock imagery — swap for real ICE-Premium project photos when
+ * available. Each pair represents the kind of transformation a discipline
+ * delivers; neither image is a photograph of a specific completed job.
  */
 export type ComparisonPair = {
   slug: string;
@@ -19,51 +19,44 @@ export type ComparisonPair = {
 
 export const comparisons: ComparisonPair[] = [
   {
-    slug: "office-reception",
-    label: "Office Reception",
+    slug: "living-room",
+    label: "Living Room",
     discipline: "Renovation & Remodeling",
     city: "Abuja",
-    before: "/images/before-after/office-reception-before.jpg",
-    after: "/images/before-after/office-reception-after.jpg",
-    beforeAlt: "Office reception area before renovation works",
-    afterAlt: "The same office reception after renovation and refinishing",
+    before: "/images/before-after/living-room-before.jpg",
+    after: "/images/before-after/living-room-after.jpg",
+    beforeAlt:
+      "Tired living room before renovation, with peeling paint and worn flooring",
+    afterAlt:
+      "The same living room after renovation, with fresh finishes and new flooring",
     summary:
-      "Dated reception stripped back and rebuilt with a new ceiling, lighting scheme and full redecoration.",
+      "Dated room stripped back and rebuilt with new finishes, a repaired ceiling line and a proper lighting scheme.",
   },
   {
-    slug: "kitchen-refit",
+    slug: "kitchen",
     label: "Kitchen Refit",
     discipline: "Carpentry & Woodworking",
     city: "Lagos",
-    before: "/images/before-after/kitchen-refit-before.jpg",
-    after: "/images/before-after/kitchen-refit-after.jpg",
-    beforeAlt: "Kitchen before refit, with original units in place",
-    afterAlt: "The same kitchen after new bespoke joinery and finishes",
+    before: "/images/before-after/kitchen-before.jpg",
+    after: "/images/before-after/kitchen-after.jpg",
+    beforeAlt: "Worn kitchen before refit, with chipped units and dated tiling",
+    afterAlt:
+      "The same kitchen after refit, with bespoke units and a new worktop",
     summary:
       "Bespoke units measured to the actual room, replacing standard carcasses that never fitted the walls.",
   },
   {
-    slug: "facade-restoration",
+    slug: "facade",
     label: "Facade Restoration",
     discipline: "Painting & Finishing",
     city: "Enugu",
-    before: "/images/before-after/facade-restoration-before.jpg",
-    after: "/images/before-after/facade-restoration-after.jpg",
-    beforeAlt: "Building facade before restoration, showing weathered finish",
-    afterAlt: "The same facade after preparation and refinishing",
+    before: "/images/before-after/facade-before.jpg",
+    after: "/images/before-after/facade-after.jpg",
+    beforeAlt:
+      "Weathered building facade before restoration, with blown render and staining",
+    afterAlt:
+      "The same facade after restoration, with sound render and a clean coating",
     summary:
       "Failed coating removed back to a sound substrate before a compatible system was applied.",
-  },
-  {
-    slug: "bathroom-renovation",
-    label: "Bathroom Renovation",
-    discipline: "Tiling & Flooring",
-    city: "Port Harcourt",
-    before: "/images/before-after/bathroom-renovation-before.jpg",
-    after: "/images/before-after/bathroom-renovation-after.jpg",
-    beforeAlt: "Bathroom before renovation with original tiling",
-    afterAlt: "The same bathroom after tanking, retiling and new sanitaryware",
-    summary:
-      "Substrate tanked and levelled before retiling, addressing the movement that cracked the original floor.",
   },
 ];

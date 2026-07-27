@@ -60,8 +60,8 @@ export default function AboutPage() {
             <div className="glass relative overflow-hidden rounded-3xl p-3">
               <div className="relative aspect-4/5 overflow-hidden rounded-2xl">
                 <Image
-                  src="/images/general/company-overview.jpg"
-                  alt="ICE-Premium engineers reviewing drawings on a project site"
+                  src="/images/about/team-photo.jpg"
+                  alt="The ICE-Premium team of five trades professionals together on site"
                   fill
                   priority
                   sizes="(min-width: 1024px) 45vw, 100vw"

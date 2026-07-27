@@ -11,6 +11,7 @@ export function BeforeAfterFeature() {
 
   return (
     <section className="section border-t border-white/10">
+      {/* AI-generated stock imagery — swap for real ICE-Premium project photos when available */}
       <div className="container-page grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
         <div className="lg:col-span-5">
           <Reveal>
