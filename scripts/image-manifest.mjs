@@ -41,7 +41,7 @@ export const images = [
     scene: "plan",
     prompt:
       "A civil engineer in a hard hat studying rolled architectural blueprints spread across a table on an active construction site, steel frame and scaffolding behind, early morning light.",
-    alt: "Engineer studying architectural drawings on an active construction site",
+    alt: "Two site engineers in hi-vis reviewing drawings outside a residential development",
   },
   {
     path: "hero/hero-02",
@@ -52,7 +52,7 @@ export const images = [
     scene: "circuit",
     prompt:
       "An electrician wiring a distribution board inside a building under construction, cable ends fanned out, head torch and insulated tools, concentrating closely on the terminations.",
-    alt: "Electrician terminating cables inside a distribution board",
+    alt: "An electrical engineer working on a live control panel with contactors and terminals",
   },
   {
     path: "hero/hero-03",
@@ -63,7 +63,7 @@ export const images = [
     scene: "truss",
     prompt:
       "A roofer kneeling on a low-pitch roof rolling out waterproofing membrane, mid-motion, torch and seam roller beside them, bright overcast sky.",
-    alt: "Roofer rolling out waterproofing membrane across a flat roof",
+    alt: "Construction workers on timber scaffolding above a concrete slab",
   },
   {
     path: "hero/hero-04",
@@ -74,7 +74,7 @@ export const images = [
     scene: "timber",
     prompt:
       "A carpenter planing a length of hardwood at a workshop bench, fine sawdust hanging in a shaft of window light, hand tools and offcuts around the bench.",
-    alt: "Carpenter planing hardwood at a workshop bench",
+    alt: "A carpenter working a length of timber at a bench in a fitted workshop",
   },
   {
     path: "hero/hero-05",
@@ -85,7 +85,7 @@ export const images = [
     scene: "steel",
     prompt:
       "A metal fabricator MIG-welding a steel balustrade section in a fabrication shop, full welding helmet and gloves, bright arc and sparks, dark workshop interior.",
-    alt: "Fabricator welding a steel balustrade section in a workshop",
+    alt: "A metalworker cutting steel with an oxy-fuel torch, sparks flying",
   },
   {
     // People-free by design. Searches for African masons and decorators
@@ -107,7 +107,7 @@ export const images = [
     scene: "frame",
     prompt:
       "Four tradespeople from different disciplines standing together on a construction site reviewing a drawing on a tablet, hard hats and hi-vis, mid-conversation.",
-    alt: "Four tradespeople reviewing a drawing together on site",
+    alt: "A construction crew working on a site at golden hour, fixing reinforcement",
   },
   {
     path: "hero/hero-08",
@@ -376,7 +376,7 @@ export const images = [
     scene: "frame",
     prompt:
       "A group of five construction and engineering professionals from different trades standing together on site, relaxed and genuine, hard hats and hi-vis, end of the working day light.",
-    alt: "The ICE-Premium team of five trades professionals together on site",
+    alt: "A construction crew on site, together at the end of a working day",
   },
 
   // ── Open Graph fallback ─────────────────────────────────────────────────

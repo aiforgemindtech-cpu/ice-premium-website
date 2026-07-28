@@ -1,7 +1,7 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "ice-premium-website",
-  "main": ".open-next/worker.js",
+  "main": "worker.ts",
   "compatibility_date": "2026-07-01",
   // nodejs_compat is required by the @opennextjs/cloudflare adapter.
   "compatibility_flags": ["nodejs_compat"],
@@ -9,6 +9,12 @@
     "directory": ".open-next/assets",
     "binding": "ASSETS"
   },
+  // Served on the real domain rather than workers.dev. `custom_domain: true`
+  // makes Cloudflare create and manage the DNS records and certificate.
+  "routes": [
+    { "pattern": "icepremiumltd.com", "custom_domain": true },
+    { "pattern": "www.icepremiumltd.com", "custom_domain": true }
+  ],
   "observability": {
     "enabled": true
   }

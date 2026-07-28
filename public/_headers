@@ -1,3 +1,8 @@
+# NOTE: this file is a Cloudflare PAGES feature and is IGNORED by Workers,
+# which is what @opennextjs/cloudflare deploys to. The real security headers
+# are set in next.config.ts via headers(). Kept only so a future move to Pages
+# does not silently lose them.
+
 # Cloudflare security headers.
 # Served for every route; Cloudflare applies these at the edge.
 

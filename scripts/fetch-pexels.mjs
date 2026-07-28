@@ -202,7 +202,7 @@ const run = async () => {
         "hero/hero-03": 1,
         "hero/hero-04": 3,
         "hero/hero-05": 2,
-        "hero/hero-07": 3,
+        "hero/hero-07": 5,
         "about/team-photo": 1,
       };
       const idx = pickIndex ?? PICKS[item.path] ?? 1;

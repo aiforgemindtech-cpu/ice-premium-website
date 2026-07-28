@@ -26,8 +26,8 @@ hero/hero-05
   "Detailed view of welding and sparks flying in a workshop setting, showcasing precision and craftsmanship."
 
 hero/hero-07
-  Mokhtar Med — https://www.pexels.com/photo/group-of-construction-workers-in-blue-uniforms-33150526/
-  "Construction workers in blue uniforms and white helmets during a break outdoors."
+  Mad Knoxx Deluxe — https://www.pexels.com/photo/construction-workers-on-site-in-daylight-30674593/
+  "Group of male construction workers on site wearing safety gear during daytime."
 
 about/team-photo
   Mukhtar Shuaib Mukhtar — https://www.pexels.com/photo/joyful-construction-workers-on-a-construction-site-38706752/
