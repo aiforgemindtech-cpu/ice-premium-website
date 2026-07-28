@@ -35,12 +35,26 @@ const siteConfigSchema = z.object({
     country: z.string(),
     hours: z.string(),
   }),
-  socials: z.object({
-    facebook: z.string().optional(),
-    instagram: z.string().optional(),
-    linkedin: z.string().optional(),
-    x: z.string().optional(),
-  }),
+  /**
+   * Unfilled placeholder URLs are stripped at parse time, so nothing
+   * downstream has to remember to filter them. This matters most for the
+   * JSON-LD `sameAs` array, where a placeholder becomes a machine-readable
+   * claim to search engines that the company owns that profile.
+   */
+  socials: z
+    .object({
+      facebook: z.string().optional(),
+      instagram: z.string().optional(),
+      linkedin: z.string().optional(),
+      x: z.string().optional(),
+    })
+    .transform((socials) =>
+      Object.fromEntries(
+        Object.entries(socials).filter(
+          ([, url]) => url && !url.includes("REPLACE-ME"),
+        ),
+      ),
+    ),
   site: z.object({
     url: z.string(),
     locale: z.string(),

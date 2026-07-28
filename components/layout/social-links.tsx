@@ -22,8 +22,13 @@ const ICONS: Record<string, { label: string; path: string }> = {
 };
 
 export function SocialLinks({ className }: { className?: string }) {
+  // Unfilled placeholder URLs are dropped rather than rendered. Linking a
+  // visitor to facebook.com/REPLACE-ME is worse than showing no icon at all,
+  // and relying on someone remembering to delete the rows by hand is exactly
+  // how a dead link reaches production.
   const entries = Object.entries(siteConfig.socials).filter(
-    ([key, url]) => Boolean(url) && key in ICONS,
+    ([key, url]) =>
+      Boolean(url) && key in ICONS && !String(url).includes("REPLACE-ME"),
   ) as [keyof typeof ICONS, string][];
 
   if (entries.length === 0) return null;

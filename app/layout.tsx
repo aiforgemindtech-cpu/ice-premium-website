@@ -57,12 +57,25 @@ export const metadata: Metadata = {
     siteName: siteConfig.company.name,
     title: `${siteConfig.company.name} — ${siteConfig.company.tagline}`,
     description: siteConfig.company.description,
+    images: [
+      {
+        url: "/api/og",
+        width: 1200,
+        height: 630,
+        alt: `${siteConfig.company.name} — ${siteConfig.company.motto}`,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    site: siteConfig.site.twitterHandle,
+    // Only set the handle once a real one exists; "@REPLACE-ME" would be
+    // published to every crawler that reads the page.
+    ...(siteConfig.site.twitterHandle.includes("REPLACE-ME")
+      ? {}
+      : { site: siteConfig.site.twitterHandle }),
     title: `${siteConfig.company.name} — ${siteConfig.company.tagline}`,
     description: siteConfig.company.description,
+    images: ["/api/og"],
   },
   robots: { index: true, follow: true },
   alternates: { canonical: "/" },
