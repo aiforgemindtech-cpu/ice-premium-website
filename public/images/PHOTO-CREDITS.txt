@@ -1,0 +1,34 @@
+Real photography sourced from Pexels (pexels.com).
+
+The Pexels licence allows commercial use with no attribution required.
+Credits are recorded here anyway. These are stock photographs of other
+people's sites and staff — they are NOT ICE-Premium projects or staff,
+and must never be described as such.
+
+hero/hero-01
+  José Carlos Alexandre — https://www.pexels.com/photo/construction-workers-in-helmets-and-reflective-vests-17797264/
+  "Two construction workers in helmets and vests review blueprints on a site."
+
+hero/hero-02
+  mickael ange konan — https://www.pexels.com/photo/female-technician-working-on-electrical-control-panel-34526423/
+  "Young female technician repairing electrical control panel in industrial setting."
+
+hero/hero-03
+  MC G'Zay — https://www.pexels.com/photo/construction-workers-on-scaffolding-in-nairobi-30661413/
+  "Construction workers wearing safety gear on scaffolding under clear skies in Nairobi, Kenya."
+
+hero/hero-04
+  Tima Miroshnichenko — https://www.pexels.com/photo/a-man-doing-carpentry-6790042/
+  "A focused craftsman demonstrating woodworking skills with tools in a workshop."
+
+hero/hero-05
+  Swastik Arora — https://www.pexels.com/photo/a-person-using-welding-machine-13296053/
+  "Detailed view of welding and sparks flying in a workshop setting, showcasing precision and craftsmanship."
+
+hero/hero-07
+  Mokhtar Med — https://www.pexels.com/photo/group-of-construction-workers-in-blue-uniforms-33150526/
+  "Construction workers in blue uniforms and white helmets during a break outdoors."
+
+about/team-photo
+  Mukhtar Shuaib Mukhtar — https://www.pexels.com/photo/joyful-construction-workers-on-a-construction-site-38706752/
+  "Group of smiling construction workers wearing safety vests and helmets on a construction site."

@@ -99,7 +99,30 @@ written permission), then set that entry's `placeholder` to `false`. The notice
 disappears automatically once none are left. If you have no testimonials yet,
 delete the entries — an empty section is more honest than a fabricated one.
 
-### 4. Legal pages
+### 4. Verify the email domain in Resend
+
+**The contact form works and delivers today**, but to the Resend account owner's
+address (`icepremiumlimited@gmail.com`), not to `info@icepremiumltd.com`.
+
+That is a Resend restriction, not a bug: until a domain is verified, the test
+sender `onboarding@resend.dev` may only deliver to the account owner. Sending
+anywhere else returns `validation_error` — the enquiry is still accepted and the
+user still sees success, but the email never arrives. Delivery is therefore
+pointed at the address that actually works.
+
+To route enquiries to `info@icepremiumltd.com`:
+
+1. Add and verify `icepremiumltd.com` at
+   [resend.com/domains](https://resend.com/domains) (add the DNS records it
+   gives you — if the domain is on Cloudflare, that is a two-minute job)
+2. Set `CONTACT_FROM_EMAIL=noreply@icepremiumltd.com`
+3. Set `CONTACT_TO_EMAIL=info@icepremiumltd.com`
+4. Update both as Cloudflare secrets (`npx wrangler secret put …`)
+
+Until then, leave `CONTACT_TO_EMAIL` as the Gmail address so enquiries are not
+silently lost.
+
+### 5. Legal pages
 
 `/privacy` and `/terms` are good-faith general templates, **not legal advice**,
 and both display a notice saying so. Have a qualified lawyer review them against
@@ -116,21 +139,39 @@ a stand-in that represents a discipline generically.
 
 There are two generators, both writing to the same paths in `/public/images`:
 
-| Command | Produces | Needs a key |
-| --- | --- | --- |
-| `npm run images` | Designed brand graphics — a truss for roofing, a circuit for electrical, a perspective floor for tiling | No |
-| `npm run images:ai` | AI-generated photography via Google Gemini | `GEMINI_API_KEY` **on a billed project** |
+Imagery comes from two sources, split by whether the shot contains a person:
 
-> **Image generation is not on the Gemini free tier.** A free API key returns
-> HTTP 429 with `limit: 0` for every image model — that is no allowance at all,
-> not an exhausted one, so waiting and retrying never clears it. The same key
-> works fine for text.
->
-> To use `npm run images:ai`, enable billing on the Google Cloud project behind
-> the key (image generation is billed per image; the 40 images this site needs
-> cost roughly a few dollars at current rates). The script detects this exact
-> condition and exits without changing anything, so a key without billing is
-> harmless to try.
+| Command | Fills | Source | Needs a key |
+| --- | --- | --- | --- |
+| `npm run images:photos` | The 7 slots showing people | Real photographs from Pexels | `PEXELS_API_KEY` (free) |
+| `npm run images:gen` | The 33 people-free slots | Pollinations.ai (FLUX) | **None** |
+| `npm run images` | Everything, as designed brand graphics | Local, offline | None |
+
+**Why the split.** Text-to-image models are reliable on buildings, interiors,
+materials and site views, and unreliable on people. A test generation of an
+electrician produced a figure with four hands and an "electrical panel" made of
+texture mush. So every shot with a person in it is a real photograph, and
+generation is used only where it cannot get anatomy wrong.
+
+Every people slot is cast with African professionals, matching the company and
+its clients. Each candidate set was reviewed by eye before selection; frames
+rejected along the way included COVID-era masks (which date the site), solar
+farm shots (not our trades), and the South Asian brickfield workers that
+masonry queries kept returning.
+
+`hero-06` is deliberately a finished interior rather than a tradesperson: no
+search reliably returned African masons or decorators, and a wrong-continent
+face on a Nigerian contractor's site is worse than no face at all.
+
+Photographer credits are recorded in `public/images/PHOTO-CREDITS.txt`. The
+Pexels licence does not require attribution, but crediting people whose work
+you are using is decent practice.
+
+> **A note on Gemini**, in case it comes up: image generation is not on its free
+> tier. A free key returns HTTP 429 with `limit: 0` for every image model — no
+> allowance at all rather than an exhausted one, so retrying never clears it.
+> `npm run images:ai` exists and works, but needs billing enabled on the Google
+> Cloud project. Pollinations needs no key and was used instead.
 
 The brand graphics ship by default so the site is never broken waiting on a key.
 Running the AI generator overwrites them in place — same filenames, same aspect

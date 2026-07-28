@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { m, useReducedMotion } from "framer-motion";
 import { useEffect, useState } from "react";
 
 /**
@@ -36,7 +36,7 @@ export function BlueprintLayer() {
         };
 
   return (
-    <motion.div
+    <m.div
       aria-hidden="true"
       className="pointer-events-none absolute inset-0 hidden items-center justify-center md:flex"
       animate={{ x: offset.x, y: offset.y }}
@@ -52,40 +52,40 @@ export function BlueprintLayer() {
       >
         <g filter="url(#emissive)">
           {/* Building elevation */}
-          <motion.path
+          <m.path
             d="M150 520 L150 260 L330 190 L510 260 L510 520"
             initial={{ pathLength: 0, opacity: 0 }}
             animate={draw(0.2)}
           />
-          <motion.path
+          <m.path
             d="M195 520 L195 350 L465 350 L465 520"
             initial={{ pathLength: 0, opacity: 0 }}
             animate={draw(0.5)}
           />
-          <motion.path
+          <m.path
             d="M240 350 L240 300 M300 350 L300 300 M360 350 L360 300 M420 350 L420 300"
             initial={{ pathLength: 0, opacity: 0 }}
             animate={draw(0.8)}
           />
-          <motion.path
+          <m.path
             d="M700 520 L700 150 L950 150 L950 520"
             initial={{ pathLength: 0, opacity: 0 }}
             animate={draw(0.4)}
           />
-          <motion.path
+          <m.path
             d="M740 200 L910 200 M740 260 L910 260 M740 320 L910 320 M740 380 L910 380 M740 440 L910 440"
             initial={{ pathLength: 0, opacity: 0 }}
             animate={draw(0.9)}
           />
           {/* Ground line */}
-          <motion.path
+          <m.path
             d="M60 520 L1140 520"
             initial={{ pathLength: 0, opacity: 0 }}
             animate={draw(0)}
           />
 
           {/* Crane, with a slow swinging arm */}
-          <motion.g
+          <m.g
             animate={
               reduced
                 ? undefined
@@ -94,27 +94,27 @@ export function BlueprintLayer() {
             transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
             style={{ originX: "1030px", originY: "110px" }}
           >
-            <motion.path
+            <m.path
               d="M1030 110 L1030 520"
               initial={{ pathLength: 0, opacity: 0 }}
               animate={draw(0.6)}
             />
-            <motion.path
+            <m.path
               d="M880 110 L1110 110"
               initial={{ pathLength: 0, opacity: 0 }}
               animate={draw(1.0)}
             />
-            <motion.path
+            <m.path
               d="M880 110 L1030 60 L1110 110"
               initial={{ pathLength: 0, opacity: 0 }}
               animate={draw(1.2)}
             />
-            <motion.path
+            <m.path
               d="M920 110 L920 178"
               initial={{ pathLength: 0, opacity: 0 }}
               animate={draw(1.5)}
             />
-            <motion.rect
+            <m.rect
               x="905"
               y="178"
               width="30"
@@ -122,7 +122,7 @@ export function BlueprintLayer() {
               initial={{ pathLength: 0, opacity: 0 }}
               animate={draw(1.7)}
             />
-          </motion.g>
+          </m.g>
         </g>
 
         <defs>
@@ -135,6 +135,6 @@ export function BlueprintLayer() {
           </filter>
         </defs>
       </svg>
-    </motion.div>
+    </m.div>
   );
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { m, useReducedMotion } from "framer-motion";
 import type { ReactNode } from "react";
 
 import { cn } from "@/lib/utils";
@@ -23,7 +23,7 @@ export function Reveal({
   as?: "div" | "section" | "li" | "article";
 }) {
   const reduced = useReducedMotion();
-  const MotionTag = motion[as];
+  const MotionTag = m[as];
 
   if (reduced) {
     const Tag = as;

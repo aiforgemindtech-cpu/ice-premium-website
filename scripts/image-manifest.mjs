@@ -34,6 +34,9 @@ export const images = [
   // ── Hero slideshow ──────────────────────────────────────────────────────
   {
     path: "hero/hero-01",
+    people: true,
+    photoQuery: "african engineer construction site blueprint",
+    photoFallbacks: ["black engineer construction site","african architect site"],
     ...HERO_SIZE,
     scene: "plan",
     prompt:
@@ -42,6 +45,9 @@ export const images = [
   },
   {
     path: "hero/hero-02",
+    people: true,
+    photoQuery: "african electrician electrical panel",
+    photoFallbacks: ["black electrician wiring","african technician electrical"],
     ...HERO_SIZE,
     scene: "circuit",
     prompt:
@@ -50,6 +56,9 @@ export const images = [
   },
   {
     path: "hero/hero-03",
+    people: true,
+    photoQuery: "african construction worker roof",
+    photoFallbacks: ["black construction worker roofing","african builder roof"],
     ...HERO_SIZE,
     scene: "truss",
     prompt:
@@ -58,6 +67,9 @@ export const images = [
   },
   {
     path: "hero/hero-04",
+    people: true,
+    photoQuery: "african carpenter woodworking",
+    photoFallbacks: ["black carpenter workshop","african woodworker"],
     ...HERO_SIZE,
     scene: "timber",
     prompt:
@@ -66,6 +78,9 @@ export const images = [
   },
   {
     path: "hero/hero-05",
+    people: true,
+    photoQuery: "african welder metal work",
+    photoFallbacks: ["black welder workshop","african metal worker"],
     ...HERO_SIZE,
     scene: "steel",
     prompt:
@@ -73,15 +88,21 @@ export const images = [
     alt: "Fabricator welding a steel balustrade section in a workshop",
   },
   {
+    // People-free by design. Searches for African masons and decorators
+    // returned South Asian brickfield workers, which would be wrong on a
+    // Nigerian contractor's site, so this slot shows finished work instead.
     path: "hero/hero-06",
     ...HERO_SIZE,
     scene: "room",
     prompt:
-      "An interior designer laying out tile, paint and timber samples on a trestle table in a half-renovated room, bare plaster walls, tall window light.",
-    alt: "Interior designer comparing material samples in a half-renovated room",
+      "The interior of a newly completed building, polished tiled floor, open stair with a steel and timber balustrade, tall windows throwing long light across the space, no people.",
+    alt: "Newly completed building interior with a polished floor and open stair",
   },
   {
     path: "hero/hero-07",
+    people: true,
+    photoQuery: "african construction workers team",
+    photoFallbacks: ["black construction workers","african builders site"],
     ...HERO_SIZE,
     scene: "frame",
     prompt:
@@ -103,55 +124,55 @@ export const images = [
     ...SERVICE_SIZE,
     scene: "frame",
     prompt:
-      "A room mid-renovation with a stud partition part-built, dust sheeting, and a builder setting a timber stud with a spirit level.",
-    alt: "Builder setting a timber stud partition during a renovation",
+      "A room part-way through renovation, new stud partition framed out, dust sheeting over the floor, tools resting against the wall, no people.",
+    alt: "Room mid-renovation with a newly framed stud partition and dust sheeting",
   },
   {
     path: "services/electrical-installations",
     ...SERVICE_SIZE,
     scene: "circuit",
     prompt:
-      "Close view of an electrician testing circuits at a newly installed consumer unit with a multifunction tester, neat cable dressing.",
-    alt: "Electrician testing circuits at a newly installed consumer unit",
+      "A newly installed consumer unit with neat cable dressing and labelled breakers, cover off, close documentary framing, no people.",
+    alt: "Newly installed consumer unit with neat cable dressing and labelled breakers",
   },
   {
     path: "services/plumbing-services",
     ...SERVICE_SIZE,
     scene: "pipes",
     prompt:
-      "A plumber press-fitting copper pipework in a plant room, pipe runs and isolation valves visible, tools laid out on a cloth.",
-    alt: "Plumber press-fitting copper pipework in a plant room",
+      "Copper pipework and isolation valves neatly run across a plant room wall, no people.",
+    alt: "Copper pipework and isolation valves run across a plant room wall",
   },
   {
     path: "services/painting-finishing",
     ...SERVICE_SIZE,
     scene: "paint",
     prompt:
-      "A decorator cutting in a clean edge along a ceiling line with a brush, masked skirting and dust sheets, soft daylight.",
-    alt: "Decorator cutting in a clean edge along a ceiling line",
+      "A freshly painted room with crisp cut-in lines at the ceiling, masked skirting and dust sheets, roller and tray on the floor, no people.",
+    alt: "Freshly painted room with crisp cut-in lines, masked skirting and dust sheets",
   },
   {
     path: "services/roofing-waterproofing",
     ...SERVICE_SIZE,
     scene: "truss",
     prompt:
-      "Roofers fitting interlocking roof tiles along a batten line on a pitched roof, felt and battens exposed below, clear sky.",
-    alt: "Roofers fitting interlocking tiles along a batten line",
+      "Close detail of interlocking roof tiles along a batten line with felt exposed below, clear sky, no people.",
+    alt: "Interlocking roof tiles set along a batten line with felt exposed below",
   },
   {
     path: "services/ceiling-installation",
     ...SERVICE_SIZE,
     scene: "room",
     prompt:
-      "A ceiling fixer installing a suspended grid ceiling, laying a tile into the T-bar frame from a platform, services visible in the void above.",
-    alt: "Ceiling fixer laying a tile into a suspended grid ceiling",
+      "A suspended grid ceiling part-installed, T-bar frame visible with services in the void above, no people.",
+    alt: "Suspended grid ceiling part-installed, with services visible in the void above",
   },
   {
     path: "services/ceiling-design",
     ...SERVICE_SIZE,
     scene: "plan",
     prompt:
-      "A finished coffered ceiling with a recessed perimeter and concealed cove lighting in a contemporary reception space, warm glow.",
+      "A finished coffered ceiling with a recessed perimeter and concealed cove lighting in a contemporary reception, warm glow, no people.",
     alt: "Finished coffered ceiling with concealed cove lighting",
   },
   {
@@ -159,39 +180,39 @@ export const images = [
     ...SERVICE_SIZE,
     scene: "tiles",
     prompt:
-      "A tiler bedding a large-format porcelain tile onto a notched adhesive bed, levelling clips and spacers in use, kneeling on a screeded floor.",
-    alt: "Tiler bedding a large-format porcelain tile onto notched adhesive",
+      "An empty room with a completed large-format porcelain tiled floor, crisp grout lines running to the skirting, daylight raking across the surface, entirely empty of people.",
+    alt: "Large-format porcelain floor tiles being set with levelling clips and spacers",
   },
   {
     path: "services/carpentry-woodworking",
     ...SERVICE_SIZE,
     scene: "timber",
     prompt:
-      "A joiner dry-fitting a bespoke cabinet carcass in a workshop, clamps holding the joint, shavings on the bench.",
-    alt: "Joiner dry-fitting a bespoke cabinet carcass in a workshop",
+      "A bespoke cabinet carcass dry-fitted on a workshop bench with clamps holding the joint, shavings on the bench, no people.",
+    alt: "Bespoke cabinet carcass dry-fitted on a workshop bench with clamps in place",
   },
   {
     path: "services/steel-metal-fabrication",
     ...SERVICE_SIZE,
     scene: "steel",
     prompt:
-      "A fabricator grinding a weld smooth on a steel gate frame in a workshop, sparks arcing, gate laid flat on trestles.",
-    alt: "Fabricator grinding a weld smooth on a steel gate frame",
+      "A finished powder-coated steel balustrade and gate frame on trestles in a fabrication workshop, no people.",
+    alt: "Finished powder-coated steel balustrade and gate frame on workshop trestles",
   },
   {
     path: "services/facility-maintenance",
     ...SERVICE_SIZE,
     scene: "pipes",
     prompt:
-      "A maintenance engineer checking readings against a clipboard in a building plant room, pumps and pipework behind, service tags visible.",
-    alt: "Maintenance engineer recording readings in a building plant room",
+      "A tidy building plant room with pumps, pipework and service tags, tools laid out, no people.",
+    alt: "Building plant room with pumps, pipework and service tags",
   },
   {
     path: "services/interior-design",
     ...SERVICE_SIZE,
     scene: "room",
     prompt:
-      "A calm finished contemporary living space with layered lighting, warm timber and stone finishes, styled but lived-in, late afternoon light.",
+      "A calm finished contemporary living space with layered lighting, warm timber and stone finishes, late afternoon light, no people.",
     alt: "Finished contemporary living space with layered lighting",
   },
 
@@ -301,53 +322,56 @@ export const images = [
     ...BLOG_SIZE,
     scene: "truss",
     prompt:
-      "Close view of a roof junction being prepared for waterproofing, flashing and upstand detail at a parapet, hands working the detail.",
-    alt: "Roof junction being prepared at a parapet flashing detail",
+      "Close detail of a roof parapet upstand and flashing junction prepared for waterproofing, no people.",
+    alt: "Roof parapet upstand and flashing junction prepared for waterproofing",
   },
   {
     path: "blog/what-a-condition-survey-actually-finds",
     ...BLOG_SIZE,
     scene: "plan",
     prompt:
-      "A surveyor using a damp meter against a wall while making notes on a clipboard in an empty room, torch and moisture readings.",
-    alt: "Surveyor taking a damp reading and recording notes in an empty room",
+      "A damp meter and survey notes resting on a windowsill in an empty room with visible damp staining on the wall, no people.",
+    alt: "Damp meter and survey notes on a windowsill beside visible damp staining",
   },
   {
     path: "blog/planned-maintenance-versus-emergency-callouts",
     ...BLOG_SIZE,
     scene: "pipes",
     prompt:
-      "A maintenance technician servicing a pump set in a plant room, service schedule on a tablet, tools laid out neatly.",
-    alt: "Technician servicing a pump set against a maintenance schedule",
+      "A pump set in a plant room with a maintenance schedule clipboard hanging beside it, no people.",
+    alt: "Plant room pump set with a maintenance schedule clipboard alongside",
   },
   {
     path: "blog/why-tiles-crack-and-how-to-prevent-it",
     ...BLOG_SIZE,
     scene: "tiles",
     prompt:
-      "A cracked floor tile lifted to expose the screed and a movement joint beneath, chisel and dust, close documentary framing.",
-    alt: "Cracked floor tile lifted to expose the screed beneath",
+      "A cracked floor tile lifted to expose the screed and movement joint beneath, chisel resting alongside, no people.",
+    alt: "Cracked floor tile lifted to expose the screed and movement joint beneath",
   },
   {
     path: "blog/designing-ceilings-in-rooms-without-height",
     ...BLOG_SIZE,
     scene: "room",
     prompt:
-      "A room with a dropped perimeter bulkhead and a higher central ceiling with concealed lighting, showing how height is preserved centrally.",
-    alt: "Room with a dropped perimeter bulkhead and higher central ceiling",
+      "A room with a dropped perimeter bulkhead and higher central ceiling with concealed lighting, no people.",
+    alt: "Room with a dropped perimeter bulkhead and a higher central ceiling",
   },
   {
     path: "blog/single-contractor-versus-managing-trades-yourself",
     ...BLOG_SIZE,
     scene: "frame",
     prompt:
-      "A site manager coordinating two tradespeople over a programme printout on a site table, part-finished room behind.",
-    alt: "Site manager coordinating tradespeople over a printed programme",
+      "A site table with a printed programme, drawings and a hard hat resting on it in a part-finished room, no people.",
+    alt: "Site table with a printed programme, drawings and a hard hat",
   },
 
   // ── About ───────────────────────────────────────────────────────────────
   {
     path: "about/team-photo",
+    people: true,
+    photoQuery: "african construction workers group",
+    photoFallbacks: ["black construction team","african workers portrait"],
     ...CARD_SIZE,
     scene: "frame",
     prompt:

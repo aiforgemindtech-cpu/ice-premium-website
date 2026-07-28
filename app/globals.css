@@ -148,6 +148,34 @@
     font-weight: 600;
   }
 
+  /* Hero entrance.
+     CSS rather than Framer `initial`/`animate` on purpose. Under LazyMotion,
+     mount animations did not run and every hero element stayed at the initial
+     opacity:0 — the headline, CTAs and stats were invisible. A CSS animation
+     cannot fail that way: if it never runs, the element is simply visible,
+     which is the correct fallback for the LCP element. */
+  @keyframes rise-in {
+    from {
+      opacity: 0;
+      transform: translateY(var(--rise, 24px));
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  .rise-in {
+    animation: rise-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: var(--rise-delay, 0s);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .rise-in {
+      animation: none;
+    }
+  }
+
   /* Ken Burns slow zoom.
      Deliberately CSS rather than a Framer Motion animation: a long-running
      motion child inside AnimatePresence blocks the exiting slide from

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { m, useReducedMotion } from "framer-motion";
 import { useRef, useState, type ReactNode } from "react";
 
 /** Magnetic hover — the element leans toward the cursor. Inert under reduced motion. */
@@ -12,7 +12,7 @@ export function Magnetic({ children }: { children: ReactNode }) {
   if (reduced) return <div className="inline-flex">{children}</div>;
 
   return (
-    <motion.div
+    <m.div
       ref={ref}
       className="inline-flex"
       animate={{ x: pos.x, y: pos.y }}
@@ -28,6 +28,6 @@ export function Magnetic({ children }: { children: ReactNode }) {
       onPointerLeave={() => setPos({ x: 0, y: 0 })}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 }

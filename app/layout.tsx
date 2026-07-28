@@ -5,6 +5,7 @@ import { Toaster } from "sonner";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import { ScrollProgress } from "@/components/layout/scroll-progress";
+import { MotionProvider } from "@/components/layout/motion-provider";
 import { SmoothScroll } from "@/components/layout/smooth-scroll";
 import { WhatsAppButton } from "@/components/layout/whatsapp-button";
 import { OrganizationJsonLd } from "@/components/seo/json-ld";
@@ -82,15 +83,17 @@ export default function RootLayout({
     >
       <body className="min-h-screen bg-navy antialiased">
         <OrganizationJsonLd />
-        <SmoothScroll />
-        <ScrollProgress />
-        <a href="#main" className="skip-link">
-          Skip to main content
-        </a>
-        <Header />
-        <main id="main">{children}</main>
-        <Footer />
-        <WhatsAppButton />
+        <MotionProvider>
+          <SmoothScroll />
+          <ScrollProgress />
+          <a href="#main" className="skip-link">
+            Skip to main content
+          </a>
+          <Header />
+          <main id="main">{children}</main>
+          <Footer />
+          <WhatsAppButton />
+        </MotionProvider>
         <Toaster
           position="bottom-right"
           toastOptions={{

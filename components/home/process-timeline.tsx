@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useInView, useReducedMotion } from "framer-motion";
+import { m, useInView, useReducedMotion } from "framer-motion";
 import { useRef } from "react";
 
 import { Reveal } from "@/components/shared/reveal";
@@ -46,7 +46,7 @@ export function ProcessTimeline() {
 
         <ol ref={ref} className="relative mt-16 grid gap-12 lg:grid-cols-4 lg:gap-8">
           {/* Connecting line */}
-          <motion.span
+          <m.span
             aria-hidden="true"
             className="absolute left-[7px] top-2 hidden w-px origin-top bg-gradient-to-b from-gold to-gold/10 lg:left-0 lg:top-[7px] lg:h-px lg:w-full lg:origin-left lg:bg-gradient-to-r"
             style={{ height: "calc(100% - 1rem)" }}

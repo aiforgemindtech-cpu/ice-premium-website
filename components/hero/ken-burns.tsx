@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, m, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
@@ -60,7 +60,7 @@ export function KenBurns() {
   return (
     <div aria-hidden="true" className="absolute inset-0 overflow-hidden">
       <AnimatePresence initial={false}>
-        <motion.div
+        <m.div
           key={index}
           className="absolute inset-0"
           initial={{ opacity: 0 }}
@@ -78,7 +78,7 @@ export function KenBurns() {
               className="object-cover"
             />
           </div>
-        </motion.div>
+        </m.div>
       </AnimatePresence>
 
       {/* Fixed navy cinematic scrim — keeps headline contrast constant across slides. */}

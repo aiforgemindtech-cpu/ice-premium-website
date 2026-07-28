@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -77,11 +77,14 @@ export function Header() {
                     )}
                   >
                     {item.label}
+                    {/* Plain span rather than a `layoutId` shared-element
+                        animation: that is a layout animation, which would pull
+                        Framer's `domMax` feature bundle into the first load for
+                        a sliding underline nobody asked for. */}
                     {active && (
-                      <motion.span
-                        layoutId="nav-active"
+                      <span
+                        aria-hidden="true"
                         className="absolute inset-x-4 -bottom-0.5 h-px bg-gold"
-                        transition={{ type: "spring", stiffness: 380, damping: 32 }}
                       />
                     )}
                   </Link>
@@ -114,7 +117,7 @@ export function Header() {
 
       <AnimatePresence>
         {open && (
-          <motion.div
+          <m.div
             id="mobile-nav"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
@@ -142,7 +145,7 @@ export function Header() {
                 </Link>
               </Button>
             </nav>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </header>

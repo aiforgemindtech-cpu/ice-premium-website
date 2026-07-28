@@ -16,7 +16,9 @@
     "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
     "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
     "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
-    "images:ai": "node scripts/generate-ai-images.mjs"
+    "images:ai": "node scripts/generate-ai-images.mjs",
+    "images:gen": "node scripts/generate-pollinations.mjs",
+    "images:photos": "node scripts/fetch-pexels.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.5.7",
