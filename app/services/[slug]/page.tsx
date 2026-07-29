@@ -10,7 +10,7 @@ import { PageHero } from "@/components/shared/page-hero";
 import { Reveal } from "@/components/shared/reveal";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { ServiceIcon } from "@/components/shared/service-icon";
-import { BreadcrumbJsonLd, FaqJsonLd } from "@/components/seo/json-ld";
+import { BreadcrumbJsonLd, FaqJsonLd, ServiceJsonLd } from "@/components/seo/json-ld";
 import { getRelatedServices, getService, services } from "@/lib/content";
 
 export function generateStaticParams() {
@@ -54,6 +54,11 @@ export default async function ServiceDetailPage(
     <>
       <BreadcrumbJsonLd items={breadcrumbs} />
       <FaqJsonLd items={service.faqs} />
+      <ServiceJsonLd
+        name={service.title}
+        description={service.summary}
+        slug={service.slug}
+      />
 
       <PageHero
         eyebrow="Service"

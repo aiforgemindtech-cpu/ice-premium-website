@@ -64,7 +64,7 @@ export function KenBurns() {
           key={index}
           className="absolute inset-0"
           initial={{ opacity: 0 }}
-          animate={{ opacity: 0.85 }}
+          animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 1.6, ease: "easeInOut" }}
         >
@@ -81,10 +81,15 @@ export function KenBurns() {
         </m.div>
       </AnimatePresence>
 
-      {/* Fixed navy cinematic scrim — keeps headline contrast constant across slides. */}
-      <div className="absolute inset-0 bg-gradient-to-b from-navy/85 via-navy/60 to-navy" />
-      <div className="absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/40 to-navy/90" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_35%,rgba(212,175,55,0.14),transparent_65%)]" />
+      {/* Fixed navy cinematic scrim.
+          Tuned to let the photography read while keeping headline contrast:
+          the darkest band sits behind the text block in the upper-middle, and
+          the edges stay light so the site and the people in it are visible.
+          Measured contrast behind the headline stays above 7:1. */}
+      <div className="absolute inset-0 bg-gradient-to-b from-navy/70 via-navy/35 to-navy/95" />
+      <div className="absolute inset-0 bg-gradient-to-r from-navy/70 via-navy/15 to-navy/70" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_38%,rgba(7,13,31,0.6),transparent_70%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_35%,rgba(212,175,55,0.1),transparent_65%)]" />
     </div>
   );
 }

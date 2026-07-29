@@ -13,26 +13,24 @@ Lenis. Deploys to Cloudflare Workers via the `@opennextjs/cloudflare` adapter.
 **The site is fully functional but is not ready to be shown to the public until
 these are done.** Everything below is deliberately, visibly a placeholder.
 
-### 1. Contact details — one file
+### 1. Contact details — done
 
-Open **`content/site.config.json`**. Every value with a `_COMMENT_*` line above it
-saying `REPLACE BEFORE LAUNCH` is fake. Replace:
+All real and live, driven from **`content/site.config.json`** alone:
 
-| Field | Current placeholder | What it must become |
-| --- | --- | --- |
-| `contact.phone` | `+234 000 000 0000` | The real number, formatted for display |
-| `contact.phoneHref` | `+2340000000000` | Same number, E.164, no spaces — used by `tel:` links |
-| `contact.whatsapp` | `2340000000000` | Same number, digits only, no `+` — used by the WhatsApp link |
-| `contact.email` | `hello@REPLACE-ME.com` | The real inbox |
-| `contact.addressLine1/2`, `contact.city` | Placeholder address | The registered office |
-| `contact.hours` | Mon–Sat 8–6 | Confirm the real hours |
-| `socials.*` | `REPLACE-ME` URLs | Real profile URLs. **Delete any row you don't use** and it disappears from the footer automatically |
-| `site.url` | `.workers.dev` URL | The real production domain, once bought |
-| `site.twitterHandle` | `@REPLACE-ME` | Real handle, or delete |
+| Field | Value |
+| --- | --- |
+| Phone / WhatsApp | 0912 751 5135 |
+| Email | info@icepremiumltd.com |
+| Address | 382 Ransom Kuti Close, Katampe Extension, Abuja |
+| Domain | icepremiumltd.com |
 
-Change it once here and it updates on every page — header, footer, hero, contact
-page, JSON-LD structured data, and the WhatsApp button. **Contact details are not
-hardcoded anywhere else in the codebase.**
+Two things still carry placeholders, and both hide themselves rather than
+showing a broken link: **social profile URLs** and **site.twitterHandle**. Any
+social URL still containing `REPLACE-ME` is stripped at config-parse time, so it
+never reaches the footer or the JSON-LD `sameAs` array. Fill them in and they
+appear automatically.
+
+Confirm **opening hours** — currently assumed as Mon–Sat 8:00–18:00.
 
 ### 2. Photography
 
@@ -393,20 +391,22 @@ your custom domain. SSL is automatic.
 Afterwards, update `site.url` in `content/site.config.json` so canonical URLs, the
 sitemap and Open Graph tags point at the real domain.
 
-### Rate limiting — do this after the first deploy
+### Rate limiting
 
-The contact endpoint has **no application-level rate limiting, deliberately.**
-In-memory counters do not persist across serverless invocations and would silently
-do nothing in production.
+Already configured and verified in production: 5 contact submissions per IP per
+10 minutes, returning 429 after that.
 
-Configure it at the edge instead, where it actually works. Cloudflare dashboard →
-your domain → **Security** → **WAF** → **Rate limiting rules** → create:
+It runs on a Durable Object (, called from ) rather
+than the two more obvious options, both of which were tried first:
 
-- **If** URI Path equals `/api/contact` **and** Request Method equals `POST`
-- **Then** Block for 1 hour
-- **When** rate exceeds **5 requests per 10 minutes** from the same IP
+- **In-memory counters** do not survive across isolates and would silently do
+  nothing in production.
+- **Cloudflare's native  binding** binds correctly but never denied
+  a request on this account — confirmed by dropping it to 2 requests per 10
+  seconds and still getting six 200s.
 
-The free plan includes one rate limiting rule, which is all this needs.
+The Durable Object holds real per-IP state and fails open, so a limiter fault
+can never block a genuine enquiry.
 
 ### Security headers
 

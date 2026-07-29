@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
+import localFont from "next/font/local";
 import { Toaster } from "sonner";
 
 import { Footer } from "@/components/layout/footer";
@@ -13,24 +13,46 @@ import { siteConfig } from "@/lib/content";
 
 import "./globals.css";
 
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  weight: ["500", "700"],
+/**
+ * Fonts are self-hosted from app/fonts rather than fetched via
+ * `next/font/google`. Google's font API was fetched at build time, which made
+ * builds fail intermittently on a poor connection and would do the same in CI.
+ * Serving them ourselves also removes a third-party connection per page load.
+ *
+ * Refresh the files with `node scripts/fetch-fonts.mjs`.
+ */
+const spaceGrotesk = localFont({
+  src: [
+    { path: "./fonts/space-grotesk-500.woff2", weight: "500", style: "normal" },
+    { path: "./fonts/space-grotesk-700.woff2", weight: "700", style: "normal" },
+  ],
   display: "swap",
   variable: "--font-space-grotesk",
+  // Keeps the swap from shifting layout while the webfont loads.
+  fallback: ["system-ui", "sans-serif"],
+  adjustFontFallback: "Arial",
 });
 
-const inter = Inter({
-  subsets: ["latin"],
+const inter = localFont({
+  src: [
+    { path: "./fonts/inter-400.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/inter-500.woff2", weight: "500", style: "normal" },
+    { path: "./fonts/inter-600.woff2", weight: "600", style: "normal" },
+  ],
   display: "swap",
   variable: "--font-inter",
+  fallback: ["system-ui", "sans-serif"],
+  adjustFontFallback: "Arial",
 });
 
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500"],
+const jetbrainsMono = localFont({
+  src: [
+    { path: "./fonts/jetbrains-mono-400.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/jetbrains-mono-500.woff2", weight: "500", style: "normal" },
+  ],
   display: "swap",
   variable: "--font-jetbrains-mono",
+  fallback: ["ui-monospace", "monospace"],
 });
 
 export const metadata: Metadata = {

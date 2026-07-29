@@ -19,11 +19,11 @@
     "_COMMENT_phoneHref": "Same number in E.164 for tel: links.",
     "phoneHref": "+2349127515135",
 
-    "_COMMENT_whatsapp": "Verified 11-digit number: 09036531358. Stored in international format, digits only, no + or spaces.",
-    "whatsapp": "2349036531358",
+    "_COMMENT_whatsapp": "Same line as the phone number: 09127515135. International format, digits only, no + or spaces.",
+    "whatsapp": "2349127515135",
 
     "_COMMENT_whatsappDisplay": "Same WhatsApp number, formatted for display.",
-    "whatsappDisplay": "0903 653 1358",
+    "whatsappDisplay": "0912 751 5135",
 
     "_COMMENT_whatsappMessage": "Pre-filled text for the WhatsApp deep link. Safe to edit.",
     "whatsappMessage": "Hello ICE-Premium, I would like to discuss a project.",
