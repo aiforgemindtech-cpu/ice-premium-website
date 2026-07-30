@@ -191,7 +191,54 @@ recovered, then delete both generator scripts and their npm scripts.
 
 ---
 
-## Editing content — the 60-second workflow
+## Publishing blog posts (and editing the site) without code
+
+The owner edits the site at **https://icepremiumltd.com/admin** — a browser
+editor covering blog posts, projects, testimonials, FAQs and contact details.
+
+It is [Decap CMS](https://decapcms.org): git-based, so every save becomes a
+commit to this repo that triggers a rebuild. No database, no monthly fee, and
+every change is version-controlled and reversible.
+
+### One-time setup (about three minutes)
+
+The editor needs permission to commit on the owner's behalf. GitHub will not
+issue that to a static page, so the site hosts its own OAuth handler at
+`/api/cms/auth`. Until it is configured that route returns 503 and sign-in is
+blocked — which is why it is safe to leave live in the meantime.
+
+1. Go to **GitHub → Settings → Developer settings → OAuth Apps → New OAuth App**
+2. Fill in:
+   - **Application name**: `ICE-Premium CMS`
+   - **Homepage URL**: `https://icepremiumltd.com`
+   - **Authorization callback URL**: `https://icepremiumltd.com/api/cms/callback`
+3. Register, then **Generate a new client secret**
+4. Add both to Cloudflare:
+
+   ```bash
+   npx wrangler secret put GITHUB_OAUTH_CLIENT_ID
+   ```
+
+   ```bash
+   npx wrangler secret put GITHUB_OAUTH_CLIENT_SECRET
+   ```
+
+5. Redeploy with `npm run deploy`
+
+Anyone with write access to the repository can then sign in at `/admin`.
+
+### Writing a post
+
+Open `/admin`, choose **Blog posts → New Blog post**, fill in the fields and
+press **Publish**. The post appears at `/blog/your-slug` once the rebuild
+finishes, and the three most recent surface on the home page automatically.
+Cover images uploaded through the editor are saved to `/public/images/blog`.
+
+`/admin` is excluded from `robots.txt`, so search engines never index it.
+
+---
+
+## Editing content — the file-based workflow
 
 No code knowledge needed. Every task below is one file.
 

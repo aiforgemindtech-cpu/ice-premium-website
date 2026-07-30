@@ -15,7 +15,7 @@ import { siteConfig } from "@/lib/content";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "ICE-PREMIUM LIMITED (RC 8682310) is an engineering, construction and maintenance company established in 2025, working across Abuja, Lagos, Enugu, Asaba and Port Harcourt.",
+    "Engineering, construction and maintenance company (RC 8682310) working across Abuja, Lagos, Enugu, Asaba and Port Harcourt.",
   alternates: { canonical: "/about" },
 };
 

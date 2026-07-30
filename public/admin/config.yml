@@ -1,0 +1,194 @@
+# Decap CMS — browser-based editing for the site owner.
+#
+# Git-based: every save becomes a commit to the repo, which triggers a rebuild.
+# No database, no monthly fee, and the content stays in version control where it
+# can be reviewed and rolled back.
+#
+# Auth uses GitHub, so the owner needs read/write access to the repository.
+
+backend:
+  name: github
+  repo: aiforgemindtech-cpu/ice-premium-website
+  branch: main
+  base_url: https://icepremiumltd.com
+  auth_endpoint: api/cms/auth
+  commit_messages:
+    create: 'Add {{collection}} “{{slug}}”'
+    update: 'Update {{collection}} “{{slug}}”'
+    delete: 'Delete {{collection}} “{{slug}}”'
+    uploadMedia: 'Upload “{{path}}”'
+    deleteMedia: 'Delete “{{path}}”'
+
+media_folder: public/images/blog
+public_folder: /images/blog
+
+collections:
+  - name: blog
+    label: Blog posts
+    label_singular: Blog post
+    folder: content/blog
+    create: true
+    slug: '{{slug}}'
+    extension: mdx
+    format: frontmatter
+    summary: '{{title}} — {{date}}'
+    sortable_fields: [date, title]
+    fields:
+      - label: Title
+        name: title
+        widget: string
+        hint: Keep under 60 characters so it is not truncated in Google results.
+      - label: URL slug
+        name: slug
+        widget: string
+        hint: Lowercase words separated by hyphens. Becomes /blog/your-slug.
+      - label: Category
+        name: category
+        widget: select
+        options:
+          - Renovation
+          - Electrical
+          - Plumbing
+          - Roofing
+          - Ceilings
+          - Tiling
+          - Carpentry
+          - Steel
+          - Maintenance
+          - Interiors
+          - Surveying
+      - label: Date
+        name: date
+        widget: datetime
+        date_format: 'YYYY-MM-DD'
+        time_format: false
+        picker_utc: true
+      - label: Excerpt
+        name: excerpt
+        widget: text
+        hint: One or two sentences. Shown on the blog index and in search results — keep under 155 characters.
+      - label: Reading time (minutes)
+        name: readingTime
+        widget: number
+        value_type: int
+        min: 1
+        max: 30
+        default: 5
+      - label: Cover image
+        name: image
+        widget: image
+        hint: Landscape, roughly 1600x900. Uploads are saved to /images/blog.
+      - label: Body
+        name: body
+        widget: markdown
+        hint: Use ## for section headings. Bold, lists and links all work.
+
+  - name: projects
+    label: Projects
+    label_singular: Project
+    files:
+      - name: projects
+        label: Project list
+        file: content/projects.json
+        fields:
+          - label: Projects
+            name: projects
+            widget: list
+            summary: '{{fields.title}} — {{fields.city}}'
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: URL slug, name: slug, widget: string }
+              - { label: Discipline, name: discipline, widget: string }
+              - { label: City, name: city, widget: string }
+              - { label: Year, name: year, widget: string }
+              - { label: Summary, name: summary, widget: text }
+              - { label: The challenge, name: challenge, widget: text }
+              - { label: What we did, name: solution, widget: text }
+              - { label: Outcome, name: outcome, widget: text }
+              - { label: Scope of works, name: scope, widget: list }
+              - { label: Main image, name: image, widget: image }
+              - { label: Gallery, name: gallery, widget: list, field: { label: Image, name: image, widget: image } }
+              - { label: Featured on home page, name: featured, widget: boolean, default: false }
+              - { label: Tile size, name: size, widget: select, options: [large, small], default: small }
+
+  - name: testimonials
+    label: Testimonials
+    files:
+      - name: testimonials
+        label: Client testimonials
+        file: content/testimonials.json
+        fields:
+          - label: Testimonials
+            name: testimonials
+            widget: list
+            summary: '{{fields.name}} — {{fields.city}}'
+            hint: Only add real, attributable quotes you have written permission to publish.
+            fields:
+              - { label: ID, name: id, widget: string }
+              - { label: Quote, name: quote, widget: text }
+              - { label: Client name, name: name, widget: string }
+              - { label: Role, name: role, widget: string }
+              - { label: City, name: city, widget: string }
+              - { label: Service, name: service, widget: string }
+              - { label: Rating, name: rating, widget: number, value_type: int, min: 1, max: 5, default: 5 }
+              - { label: Placeholder, name: placeholder, widget: boolean, default: false }
+
+  - name: faqs
+    label: FAQs
+    files:
+      - name: faqs
+        label: Frequently asked questions
+        file: content/faqs.json
+        fields:
+          - label: FAQs
+            name: faqs
+            widget: list
+            summary: '{{fields.question}}'
+            fields:
+              - { label: ID, name: id, widget: string }
+              - { label: Question, name: question, widget: string }
+              - { label: Answer, name: answer, widget: text }
+
+  - name: settings
+    label: Site settings
+    files:
+      - name: contact
+        label: Contact details
+        file: content/site.config.json
+        fields:
+          - label: Company
+            name: company
+            widget: object
+            fields:
+              - { label: Name, name: name, widget: string }
+              - { label: Short name, name: shortName, widget: string }
+              - { label: Motto, name: motto, widget: string }
+              - { label: RC number, name: rcNumber, widget: string }
+              - { label: Established, name: established, widget: string }
+              - { label: Industry, name: industry, widget: string }
+              - { label: Tagline, name: tagline, widget: string }
+              - { label: Description, name: description, widget: text }
+          - label: Contact
+            name: contact
+            widget: object
+            fields:
+              - { label: Phone (display), name: phone, widget: string }
+              - { label: Phone (E.164), name: phoneHref, widget: string, hint: 'Format +234…' }
+              - { label: WhatsApp (digits only), name: whatsapp, widget: string }
+              - { label: WhatsApp (display), name: whatsappDisplay, widget: string }
+              - { label: WhatsApp message, name: whatsappMessage, widget: string }
+              - { label: Email, name: email, widget: string }
+              - { label: Address line 1, name: addressLine1, widget: string }
+              - { label: Address line 2, name: addressLine2, widget: string }
+              - { label: City, name: city, widget: string }
+              - { label: Country, name: country, widget: string }
+              - { label: Opening hours, name: hours, widget: string }
+          - label: Social profiles
+            name: socials
+            widget: object
+            hint: Leave a field blank to hide that icon. Any URL containing REPLACE-ME is ignored.
+            fields:
+              - { label: Facebook, name: facebook, widget: string, required: false }
+              - { label: Instagram, name: instagram, widget: string, required: false }
+              - { label: LinkedIn, name: linkedin, widget: string, required: false }
+              - { label: X, name: x, widget: string, required: false }

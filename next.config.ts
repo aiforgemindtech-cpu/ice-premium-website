@@ -31,6 +31,14 @@ const nextConfig: NextConfig = {
   },
   poweredByHeader: false,
 
+  async redirects() {
+    return [
+      // /testimonials was removed rather than ship invented client quotes.
+      // Anything already linking to it lands on the commitments instead of a 404.
+      { source: "/testimonials", destination: "/about", permanent: true },
+    ];
+  },
+
   async headers() {
     return [
       { source: "/:path*", headers: SECURITY_HEADERS },

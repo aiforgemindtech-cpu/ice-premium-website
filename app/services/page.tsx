@@ -13,7 +13,7 @@ import { services } from "@/lib/content";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Twelve engineering, construction and maintenance disciplines delivered in-house — renovation, electrical, plumbing, roofing, ceilings, tiling, carpentry, steel fabrication, maintenance and interior design.",
+    "Twelve engineering, construction and maintenance disciplines delivered in-house, from renovation and electrical to steel fabrication and interior design.",
   alternates: { canonical: "/services" },
 };
 

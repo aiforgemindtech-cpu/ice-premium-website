@@ -9,17 +9,17 @@
     "established": "2025",
     "industry": "Engineering · Construction · Maintenance",
     "tagline": "Engineering the future, built to perfection.",
-    "description": "ICE-PREMIUM LIMITED delivers engineering, construction and maintenance across twelve disciplines — from structural renovation and electrical installation to interior design and facility maintenance — for clients in Abuja, Lagos, Enugu, Asaba and Port Harcourt."
+    "description": "Engineering, construction and maintenance across twelve disciplines in Abuja, Lagos, Enugu, Asaba and Port Harcourt. Surveyed properly, priced honestly."
   },
 
   "contact": {
-    "_COMMENT_phone": "Confirmed 11-digit line: 09127515135.",
-    "phone": "0912 751 5135",
+    "_COMMENT_phone": "Voice line — calls only, no WhatsApp.",
+    "phone": "0903 653 1358",
 
     "_COMMENT_phoneHref": "Same number in E.164 for tel: links.",
-    "phoneHref": "+2349127515135",
+    "phoneHref": "+2349036531358",
 
-    "_COMMENT_whatsapp": "Same line as the phone number: 09127515135. International format, digits only, no + or spaces.",
+    "_COMMENT_whatsapp": "WhatsApp line — separate from the voice number. Digits only, no + or spaces.",
     "whatsapp": "2349127515135",
 
     "_COMMENT_whatsappDisplay": "Same WhatsApp number, formatted for display.",
@@ -79,7 +79,6 @@
         { "label": "About Us", "href": "/about" },
         { "label": "Our Projects", "href": "/projects" },
         { "label": "Before & After", "href": "/before-after" },
-        { "label": "Testimonials", "href": "/testimonials" },
         { "label": "Blog", "href": "/blog" }
       ]
     },

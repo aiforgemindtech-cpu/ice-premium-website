@@ -76,6 +76,42 @@ export async function POST(request: Request) {
       return NextResponse.json({ ok: true, delivered: false });
     }
 
+    // Acknowledgement to the enquirer. Sent after the internal notification so
+    // a failure here can never cost the company the lead itself.
+    try {
+      await resend.emails.send({
+        from: `${siteConfig.company.name} <${from}>`,
+        to: [email],
+        replyTo: to,
+        subject: `We've received your enquiry — ${siteConfig.company.name}`,
+        text: [
+          `Hello ${name.split(" ")[0]},`,
+          "",
+          "Thank you for getting in touch. Your enquiry has reached us and a",
+          "member of the team will respond shortly to arrange a site survey.",
+          "",
+          "For reference, this is what you sent:",
+          "",
+          `  Service:  ${service}`,
+          `  Location: ${city}`,
+          "",
+          message.replace(/^/gm, "  "),
+          "",
+          "If it is urgent, you can reach us directly:",
+          `  Phone:    ${siteConfig.contact.phone}`,
+          `  WhatsApp: ${siteConfig.contact.whatsappDisplay}`,
+          "",
+          `${siteConfig.company.name}`,
+          `RC ${siteConfig.company.rcNumber} · ${siteConfig.company.motto}`,
+          `${siteConfig.contact.addressLine1}, ${siteConfig.contact.addressLine2}, ${siteConfig.contact.city}`,
+          "",
+          "This is an automated acknowledgement — replies reach the team.",
+        ].join("\n"),
+      });
+    } catch (ackError) {
+      console.warn("[contact] acknowledgement to enquirer failed", ackError);
+    }
+
     return NextResponse.json({ ok: true, delivered: true });
   } catch (err) {
     console.error("[contact] send failed", err);

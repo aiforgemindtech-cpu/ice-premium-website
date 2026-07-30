@@ -103,6 +103,8 @@ const serviceSchema = z.object({
 
 const postSchema = z.object({
   title: z.string(),
+  /** Shorter headline for <title>; falls back to title. */
+  seoTitle: z.string().optional(),
   slug: z.string(),
   category: z.string(),
   date: z.string(),

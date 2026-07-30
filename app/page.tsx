@@ -9,7 +9,7 @@ import { ProcessTimeline } from "@/components/home/process-timeline";
 import { ProjectShowcase } from "@/components/home/project-showcase";
 import { ServiceAreas } from "@/components/home/service-areas";
 import { ServicesGrid } from "@/components/home/services-grid";
-import { TestimonialsSection } from "@/components/home/testimonials-section";
+import { Commitments } from "@/components/home/commitments";
 import { WhyChooseUs } from "@/components/home/why-choose-us";
 import { Hero } from "@/components/hero/hero";
 
@@ -26,7 +26,7 @@ export default function HomePage() {
       <BeforeAfterFeature />
       <AnimatedStats />
       <ServiceAreas />
-      <TestimonialsSection />
+      <Commitments />
       <LatestBlog />
       <FaqSection />
       <FinalCta />
