@@ -4,7 +4,8 @@
 # No database, no monthly fee, and the content stays in version control where it
 # can be reviewed and rolled back.
 #
-# Auth uses GitHub, so the owner needs read/write access to the repository.
+# Sign-in uses a fine-grained GitHub token the owner pastes once. No OAuth app
+# to register and no client secret on the server — see /api/cms/auth.
 
 backend:
   name: github

@@ -200,32 +200,21 @@ It is [Decap CMS](https://decapcms.org): git-based, so every save becomes a
 commit to this repo that triggers a rebuild. No database, no monthly fee, and
 every change is version-controlled and reversible.
 
-### One-time setup (about three minutes)
+### Signing in
 
-The editor needs permission to commit on the owner's behalf. GitHub will not
-issue that to a static page, so the site hosts its own OAuth handler at
-`/api/cms/auth`. Until it is configured that route returns 503 and sign-in is
-blocked — which is why it is safe to leave live in the meantime.
+There is no OAuth app to register and no client secret to configure. The editor
+asks for a fine-grained GitHub token the first time you use it:
 
-1. Go to **GitHub → Settings → Developer settings → OAuth Apps → New OAuth App**
-2. Fill in:
-   - **Application name**: `ICE-Premium CMS`
-   - **Homepage URL**: `https://icepremiumltd.com`
-   - **Authorization callback URL**: `https://icepremiumltd.com/api/cms/callback`
-3. Register, then **Generate a new client secret**
-4. Add both to Cloudflare:
+1. Open `https://icepremiumltd.com/admin` and click **Sign in**
+2. Follow the **Create a token** link on that page
+3. Set **Repository access** to `ice-premium-website`, and under
+   **Permissions → Repository** set **Contents** to *Read and write*
+4. Paste the token and sign in
 
-   ```bash
-   npx wrangler secret put GITHUB_OAUTH_CLIENT_ID
-   ```
-
-   ```bash
-   npx wrangler secret put GITHUB_OAUTH_CLIENT_SECRET
-   ```
-
-5. Redeploy with `npm run deploy`
-
-Anyone with write access to the repository can then sign in at `/admin`.
+The token is verified against GitHub from the browser and handed straight to the
+editor. It is never sent to this server, never logged and never stored
+server-side, so there is no shared secret to leak — and it can be revoked from
+GitHub at any time. The browser remembers it, so this is a one-off.
 
 ### Writing a post
 
