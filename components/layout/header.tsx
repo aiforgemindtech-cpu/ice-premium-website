@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 
 import { LogoMark } from "@/components/brand/logo-mark";
 import { Button } from "@/components/ui/button";
-import { siteConfig } from "@/lib/content";
+import { siteConfig } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 export function Header() {

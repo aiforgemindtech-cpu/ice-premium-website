@@ -10,7 +10,7 @@ import { KenBurns } from "@/components/hero/ken-burns";
 import { Magnetic } from "@/components/hero/magnetic";
 import { ParticleCanvas } from "@/components/hero/particle-canvas";
 import { Button } from "@/components/ui/button";
-import { siteConfig, whatsappLink } from "@/lib/content";
+import { siteConfig, whatsappLink } from "@/lib/site";
 
 const HEADLINE_WHITE = ["Engineering", "the", "future,"];
 const HEADLINE_GOLD = ["built", "to", "perfection."];

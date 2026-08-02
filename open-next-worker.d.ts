@@ -3,6 +3,11 @@
  * generates. It does not exist before the first build, so declaring it here
  * keeps `worker.ts` type-safe without needing a ts-ignore.
  */
+declare interface ExecutionContext {
+  waitUntil(promise: Promise<unknown>): void;
+  passThroughOnException(): void;
+}
+
 declare module "./.open-next/worker.js" {
   const handler: {
     fetch(request: Request, env: unknown, ctx: unknown): Promise<Response>;

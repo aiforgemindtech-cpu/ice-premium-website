@@ -14,9 +14,14 @@ import {
   Textarea,
 } from "@/components/ui/field";
 import { contactSchema, type ContactInput } from "@/lib/contact-schema";
-import { services, siteConfig } from "@/lib/content";
+import { siteConfig } from "@/lib/site";
 
-export function ContactForm() {
+/**
+ * Service names arrive as a prop rather than being imported.
+ * Importing them here pulled lib/content — and therefore zod and every
+ * content JSON — into the client bundle for a list of twelve strings.
+ */
+export function ContactForm({ services }: { services: string[] }) {
   const {
     register,
     handleSubmit,
@@ -135,8 +140,8 @@ export function ContactForm() {
             Select a service
           </option>
           {services.map((service) => (
-            <option key={service.slug} value={service.title}>
-              {service.title}
+            <option key={service} value={service}>
+              {service}
             </option>
           ))}
           <option value="Multiple / not sure">Multiple, or not sure yet</option>

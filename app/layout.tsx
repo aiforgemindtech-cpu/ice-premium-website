@@ -4,6 +4,7 @@ import { Toaster } from "sonner";
 
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
+import { ServiceWorker } from "@/components/layout/service-worker";
 import { ScrollProgress } from "@/components/layout/scroll-progress";
 import { MotionProvider } from "@/components/layout/motion-provider";
 import { SmoothScroll } from "@/components/layout/smooth-scroll";
@@ -21,24 +22,29 @@ import "./globals.css";
  *
  * Refresh the files with `node scripts/fetch-fonts.mjs`.
  */
+/**
+ * One variable file per family, subset to the ~100 glyphs this site uses.
+ *
+ * This was 247KB across seven preloaded files — the largest thing on the
+ * critical path, and all of it render-blocking on a slow connection. Google's
+ * subsetting endpoint returns a single variable font per family covering the
+ * whole weight range, so declaring the range rather than a file per weight
+ * takes it to 72KB.
+ *
+ * Regenerate with `node scripts/fetch-fonts.mjs` after adding content that
+ * uses characters outside the current set.
+ */
 const spaceGrotesk = localFont({
-  src: [
-    { path: "./fonts/space-grotesk-500.woff2", weight: "500", style: "normal" },
-    { path: "./fonts/space-grotesk-700.woff2", weight: "700", style: "normal" },
-  ],
+  src: [{ path: "./fonts/space-grotesk.woff2", weight: "500 700", style: "normal" }],
   display: "swap",
   variable: "--font-space-grotesk",
-  // Keeps the swap from shifting layout while the webfont loads.
+  // Metric-matched fallback, so the swap doesn't shift layout.
   fallback: ["system-ui", "sans-serif"],
   adjustFontFallback: "Arial",
 });
 
 const inter = localFont({
-  src: [
-    { path: "./fonts/inter-400.woff2", weight: "400", style: "normal" },
-    { path: "./fonts/inter-500.woff2", weight: "500", style: "normal" },
-    { path: "./fonts/inter-600.woff2", weight: "600", style: "normal" },
-  ],
+  src: [{ path: "./fonts/inter.woff2", weight: "400 600", style: "normal" }],
   display: "swap",
   variable: "--font-inter",
   fallback: ["system-ui", "sans-serif"],
@@ -46,10 +52,7 @@ const inter = localFont({
 });
 
 const jetbrainsMono = localFont({
-  src: [
-    { path: "./fonts/jetbrains-mono-400.woff2", weight: "400", style: "normal" },
-    { path: "./fonts/jetbrains-mono-500.woff2", weight: "500", style: "normal" },
-  ],
+  src: [{ path: "./fonts/jetbrains-mono.woff2", weight: "400 500", style: "normal" }],
   display: "swap",
   variable: "--font-jetbrains-mono",
   fallback: ["ui-monospace", "monospace"],
@@ -118,6 +121,7 @@ export default function RootLayout({
     >
       <body className="min-h-screen bg-navy antialiased">
         <OrganizationJsonLd />
+        <ServiceWorker />
         <MotionProvider>
           <SmoothScroll />
           <ScrollProgress />

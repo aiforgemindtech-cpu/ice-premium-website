@@ -50,3 +50,6 @@ cloudflare-env.d.ts
 /content/.generated/
 .photo-cache/
 .tmp-preview/
+
+# Generated responsive image variants — rebuilt by prebuild
+/public/opt/

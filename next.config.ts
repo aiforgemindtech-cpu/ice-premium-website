@@ -26,8 +26,18 @@ const SECURITY_HEADERS = [
 
 const nextConfig: NextConfig = {
   images: {
-    formats: ["image/avif", "image/webp"],
-    qualities: [70, 75, 82, 85],
+    // Next's optimizer is a no-op on Cloudflare's free tier — it returns the
+    // original bytes at every width. Variants are pre-built instead by
+    // scripts/optimize-images.mjs and resolved by this loader.
+    loader: "custom",
+    loaderFile: "./lib/image-loader.ts",
+    formats: ["image/webp"],
+    qualities: [72],
+    // Matched exactly to WIDTHS in scripts/optimize-images.mjs so each srcset
+    // candidate maps to a real file rather than rounding up to a larger one.
+    // Without this a 360px phone picked the 640w slot and got the 960px file.
+    deviceSizes: [480, 960, 1440, 1920],
+    imageSizes: [480],
   },
   poweredByHeader: false,
 

@@ -1,4 +1,4 @@
-import { whatsappLink } from "@/lib/content";
+import { whatsappLink } from "@/lib/site";
 
 /** Free live-chat path — a WhatsApp deep link, no third-party script or cookie. */
 export function WhatsAppButton() {

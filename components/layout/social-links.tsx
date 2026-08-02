@@ -1,4 +1,4 @@
-import { siteConfig } from "@/lib/content";
+import { siteConfig } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 // lucide-react v1 dropped brand marks, so these are inline paths.

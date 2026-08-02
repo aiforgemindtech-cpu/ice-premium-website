@@ -5,9 +5,9 @@
   "scripts": {
     "content": "node scripts/build-content.mjs",
     "images": "node scripts/generate-brand-images.mjs",
-    "predev": "npm run content",
+    "predev": "npm run content && npm run images:opt",
     "dev": "next dev",
-    "prebuild": "npm run content",
+    "prebuild": "npm run content && npm run images:opt",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
@@ -18,7 +18,8 @@
     "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
     "images:ai": "node scripts/generate-ai-images.mjs",
     "images:gen": "node scripts/generate-pollinations.mjs",
-    "images:photos": "node scripts/fetch-pexels.mjs"
+    "images:photos": "node scripts/fetch-pexels.mjs",
+    "images:opt": "node scripts/optimize-images.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.5.7",
@@ -27,7 +28,6 @@
     "@radix-ui/react-slot": "^1.3.3",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "embla-carousel-react": "^8.6.0",
     "framer-motion": "^12.42.2",
     "lenis": "^1.3.25",
     "lucide-react": "^1.27.0",

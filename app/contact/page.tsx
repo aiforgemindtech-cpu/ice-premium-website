@@ -7,7 +7,7 @@ import { PageHero } from "@/components/shared/page-hero";
 import { Reveal } from "@/components/shared/reveal";
 import { SocialLinks } from "@/components/layout/social-links";
 import { BreadcrumbJsonLd, LocalBusinessJsonLd } from "@/components/seo/json-ld";
-import { siteConfig, whatsappLink } from "@/lib/content";
+import { services, siteConfig, whatsappLink } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -46,7 +46,7 @@ export default function ContactPage() {
               will be.
             </p>
             <div className="mt-10">
-              <ContactForm />
+              <ContactForm services={services.map((s) => s.title)} />
             </div>
           </Reveal>
 
